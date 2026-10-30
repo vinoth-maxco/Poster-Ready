@@ -1,0 +1,1520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="Poster Ready — cinematic personalized marathon and awareness poster experiences.">
+<title>Poster Ready | Digital Poster Studio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Cinzel:wght@700&family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@700&family=Manrope:wght@500;600;700;800&family=Montserrat:wght@600&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#07111f;
+  --ink2:#0b1e34;
+  --paper:#f5f3ee;
+  --paper2:#ebe8e0;
+  --white:#fff;
+  --blue:#1769f5;
+  --cyan:#27d5d5;
+  --orange:#ff5a2f;
+  --yellow:#ffd34e;
+  --muted:#7a8797;
+  --line:rgba(7,17,31,.12);
+  --soft:#edf3f9;
+  --shadow:0 28px 90px rgba(5,20,40,.14);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.is-loading{overflow:hidden}
+.site-loader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:transparent;transition:opacity .4s var(--ease),visibility .4s}.site-loader:before{display:none}.site-loader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}.loader-brand{position:relative;z-index:1;width:min(230px,54vw);animation:loaderBrand 1.3s var(--ease) infinite alternate}.loader-brand img{width:100%;filter:drop-shadow(0 7px 11px rgba(25,72,112,.1))}html.event-brand-pending #headerLogo,html.event-brand-pending #loaderLogo{visibility:hidden}.loader-caption{position:absolute;z-index:2;bottom:calc(50% - 82px);width:170px;padding-top:19px;text-align:center;font-size:8px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#54708a}.loader-caption:before{content:"";position:absolute;top:5px;left:0;width:100%;height:2px;border-radius:99px;background:rgba(84,112,138,.3)}.loader-caption:after{content:"";position:absolute;top:1px;left:0;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#ffbf22,#ff582d);box-shadow:0 0 0 3px rgba(255,132,47,.12);animation:raceProgress 1.35s ease-in-out infinite}@keyframes loaderBrand{from{transform:scale(.97) translateY(3px);opacity:.78}to{transform:scale(1.02) translateY(-3px);opacity:1}}@keyframes raceProgress{0%{left:0}50%{left:calc(100% - 10px)}100%{left:0}}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer;border:0}
+img{max-width:100%;display:block}
+.container{width:min(1220px,calc(100% - 42px));margin:auto}
+.hidden{display:none!important}
+
+/* =========================
+   GLOBAL MOTION / CURSOR
+========================= */
+.reveal{opacity:0;transform:translateY(42px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+.reveal-scale{opacity:0;transform:scale(.92);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal-scale.is-visible{opacity:1;transform:scale(1)}
+.split-line{overflow:hidden;display:block}
+.split-line>span{display:block;transform:translateY(110%);transition:transform 1s var(--ease)}
+.is-visible .split-line>span{transform:none}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+
+/* =========================
+   HEADER
+========================= */
+.header{
+  position:fixed;left:0;right:0;top:0;z-index:80;height:82px;
+  background:rgba(245,243,238,.82);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(7,17,31,.08);
+  transition:transform .5s var(--ease),background .5s var(--ease),height .5s var(--ease),box-shadow .5s var(--ease);
+}
+.header.scrolled{height:68px;background:rgba(7,17,31,.84);color:#fff;border-color:rgba(255,255,255,.08);box-shadow:0 10px 40px rgba(0,0,0,.12)}
+.header.hide{transform:translateY(-110%)}
+.header-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{display:block;width:158px;height:50px;object-fit:contain;object-position:left center;transition:filter .35s var(--ease),width .35s var(--ease)}
+.header.scrolled .brand-logo{filter:brightness(0) invert(1);width:142px}
+.header-links{display:flex;align-items:center;gap:26px}
+.header-link{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#526175;transition:color .25s}
+.header.scrolled .header-link{color:#dce6f3}
+.header-link:hover{color:var(--orange)!important}
+.header-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;background:var(--ink);color:#fff;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase}
+.header.scrolled .header-cta{background:#fff;color:var(--ink)}
+.header-menu{display:none;background:transparent;color:inherit;font-size:25px}
+
+/* =========================
+   HOME HERO
+========================= */
+.home-page{display:block;background:var(--ink);color:#fff}
+.hero-marketing{
+  position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+  background:
+    radial-gradient(circle at 78% 22%,rgba(39,213,213,.18),transparent 24%),
+    radial-gradient(circle at 16% 74%,rgba(255,90,47,.20),transparent 28%),
+    linear-gradient(125deg,#06101e 0%,#0a1d32 46%,#07111f 100%);
+}
+.hero-grid{
+  position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,.95fr) minmax(390px,1.05fr);
+  gap:60px;align-items:center;padding:140px 0 90px;
+}
+.hero-copy .eyebrow,.event-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;color:#fff;border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.07);border-radius:999px;padding:9px 13px;font-size:9px;font-weight:800;
+  text-transform:uppercase;letter-spacing:1.5px;backdrop-filter:blur(10px)
+}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:#36e59d;box-shadow:0 0 0 5px rgba(54,229,157,.12)}
+.hero-title{
+  font:800 clamp(58px,8vw,112px)/.86 Manrope;letter-spacing:-6px;margin:24px 0 22px;max-width:760px;
+}
+.hero-title em{font-family:"Permanent Marker";font-style:normal;color:var(--yellow);letter-spacing:-2px}
+.hero-sub{max-width:570px;color:#b8c6d6;font-size:16px;line-height:1.8;margin:0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  min-height:46px;padding:0 18px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:11px;font-weight:800;letter-spacing:.4px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s;
+}
+.primary{background:var(--orange);color:#fff;box-shadow:0 12px 30px rgba(255,90,47,.22)}
+.primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(255,90,47,.28);background:#ff4b1d}
+.outline{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.outline:hover{transform:translateY(-3px);background:rgba(255,255,255,.11)}
+.hero-meta{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap}
+.hero-meta strong{display:block;font:800 22px Manrope}
+.hero-meta span{display:block;margin-top:3px;color:#8192a8;font-size:9px;text-transform:uppercase;letter-spacing:1.2px}
+.hero-art{position:relative;min-height:570px;display:grid;place-items:center}
+.poster-orbit{
+  position:absolute;width:min(480px,42vw);aspect-ratio:1;border:1px solid rgba(255,255,255,.10);border-radius:50%;
+  animation:orbit 18s linear infinite;
+}
+.poster-orbit:before,.poster-orbit:after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 25px var(--yellow)}
+.poster-orbit:before{left:12%;top:17%}.poster-orbit:after{right:7%;bottom:24%;background:var(--cyan);box-shadow:0 0 25px var(--cyan)}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.hero-poster-stack{position:relative;width:min(430px,78vw);height:520px;perspective:1000px}
+.hero-poster{
+  position:absolute;inset:0;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(145deg,#193a5b,#0d2036);box-shadow:0 40px 100px rgba(0,0,0,.42);
+}
+.hero-poster:nth-child(1){transform:rotate(-8deg) translate(-30px,12px);opacity:.42}
+.hero-poster:nth-child(2){transform:rotate(6deg) translate(28px,18px);opacity:.55}
+.hero-poster.main-poster{transform:rotate(-1deg);background:
+  radial-gradient(circle at 72% 20%,rgba(255,211,78,.65),transparent 16%),
+  linear-gradient(160deg,#f05a32 0%,#132b49 52%,#07111f 100%);z-index:3}
+.poster-graphic{position:absolute;inset:22px;display:flex;flex-direction:column;justify-content:space-between}
+.poster-graphic small{font-size:10px;font-weight:800;letter-spacing:2px}
+.poster-graphic h3{font:800 72px/.84 Anton;color:#fff;text-transform:uppercase;margin:0;letter-spacing:-1px}
+.poster-graphic .runner{
+  position:absolute;right:-10px;top:90px;width:190px;height:300px;
+  border-radius:48% 48% 40% 40%;background:linear-gradient(150deg,#fff,#d6e2ee);
+  transform:rotate(-13deg);opacity:.92;filter:drop-shadow(0 30px 30px rgba(0,0,0,.22))
+}
+.poster-graphic .runner:before{content:"";position:absolute;width:84px;height:84px;border-radius:50%;background:#f0b28d;top:-58px;left:56px}
+.poster-graphic .stripe{height:8px;background:var(--yellow);width:58%;margin-bottom:10px}
+.hero-poster{display:none}.hero-banner-card{position:relative;z-index:3;display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 35px 50px rgba(0,0,0,.45));animation:bannerFloat 5.5s ease-in-out infinite;transform-origin:center}.hero-poster-stack:before,.hero-poster-stack:after{content:"";position:absolute;inset:7%;border-radius:26px;background:linear-gradient(145deg,#123652,#09192a);border:1px solid rgba(255,255,255,.08);z-index:1}.hero-poster-stack:before{transform:rotate(-9deg) translate(-23px,15px);opacity:.68}.hero-poster-stack:after{transform:rotate(7deg) translate(25px,18px);opacity:.75}.hero-poster-stack:hover .hero-banner-card{animation-play-state:paused;transform:translateY(-10px) rotate(-1.8deg) scale(1.025)}@keyframes bannerFloat{0%,100%{transform:translateY(0) rotate(-.8deg)}50%{transform:translateY(-17px) rotate(1deg)}}
+.hero-scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;color:#8292a7;font-size:9px;text-transform:uppercase;letter-spacing:2px}
+.hero-scroll i{display:block;width:1px;height:54px;background:linear-gradient(#8292a7,transparent);animation:scrollPulse 1.6s ease-in-out infinite}
+@keyframes scrollPulse{50%{height:72px;opacity:.45}}
+
+/* =========================
+   MARQUEE
+========================= */
+.marquee{background:var(--orange);color:#fff;overflow:hidden;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(0,0,0,.1)}
+.marquee-track{display:flex;width:max-content;animation:marquee 24s linear infinite}
+.marquee-track span{font:800 15px Manrope;letter-spacing:1.2px;text-transform:uppercase;padding:17px 28px;white-space:nowrap}
+.marquee-track span:after{content:"✦";margin-left:28px;color:#ffd36a}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* =========================
+   MARKETING CHAPTERS
+========================= */
+.marketing-section{position:relative;padding:125px 0;overflow:hidden}
+.section-dark{background:var(--ink);color:#fff}
+.section-light{background:var(--paper);color:var(--ink)}
+.section-cyan{background:#dff4f1;color:var(--ink)}
+.section-kicker{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--orange);margin-bottom:13px}
+.section-title{font:800 clamp(42px,6vw,78px)/.92 Manrope;letter-spacing:-4px;margin:0}
+.section-copy{max-width:580px;color:#758296;font-size:15px;line-height:1.8;margin-top:18px}
+.section-dark .section-copy{color:#a8b7c8}
+.section-headline-row{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:58px}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.service-card{position:relative;min-height:330px;background:var(--paper);padding:34px;overflow:hidden;transition:background .5s var(--ease),color .5s}
+.service-card:hover{background:var(--ink);color:#fff}
+.service-no{font:800 11px Manrope;color:var(--orange);letter-spacing:2px}
+.service-card h3{font:800 28px Manrope;letter-spacing:-1.2px;margin:80px 0 12px}
+.service-card p{font-size:12px;line-height:1.7;color:#7c899a;max-width:300px}
+.service-card:hover p{color:#aebccc}
+.service-icon{position:absolute;right:24px;top:26px;font:800 55px Anton;opacity:.08;transition:transform .7s var(--ease),opacity .5s}
+.service-card:hover .service-icon{transform:scale(1.3) rotate(-7deg);opacity:.15}
+
+/* PROCESS */
+.process-wrap{display:grid;grid-template-columns:.65fr 1.35fr;gap:80px;align-items:start}
+.process-sticky{position:sticky;top:120px}
+.process-list{border-top:1px solid rgba(255,255,255,.12)}
+.process-item{position:relative;padding:32px 0;border-bottom:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:70px 1fr;gap:25px}
+.process-item .num{font:800 14px Manrope;color:var(--yellow)}
+.process-item h3{margin:0 0 8px;font:800 25px Manrope;letter-spacing:-1px}
+.process-item p{margin:0;color:#8292a6;font-size:12px;line-height:1.7;max-width:520px}
+.process-item:before{content:"";position:absolute;left:-80px;top:0;height:100%;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .8s var(--ease)}
+.process-item.is-visible:before{transform:scaleY(1)}
+
+/* POSTER SHOWCASE */
+.showcase{background:#111d2c;padding-bottom:140px}
+.poster-wall{display:grid;grid-template-columns:1.05fr .7fr .95fr;gap:18px;align-items:start}
+.mock-poster{position:relative;min-height:560px;border-radius:18px;overflow:hidden;box-shadow:0 35px 80px rgba(0,0,0,.28);transform:translateY(var(--shift,0px));will-change:transform}
+.mock-poster.a{background:linear-gradient(150deg,#f75d35,#ffb43f 52%,#132f50)}
+.mock-poster.b{background:linear-gradient(160deg,#0b2340,#126e91 55%,#e6f0ed)}
+.mock-poster.c{background:linear-gradient(145deg,#111,#263d59 58%,#e95a35)}
+.mock-poster .mp-inner{position:absolute;inset:24px;display:flex;flex-direction:column;justify-content:space-between}
+.mock-poster .mp-tag{font-size:9px;font-weight:800;letter-spacing:2px;color:rgba(255,255,255,.8)}
+.mock-poster h3{font:800 clamp(46px,5vw,78px)/.8 Anton;color:#fff;text-transform:uppercase;margin:0}
+.mock-poster p{font-size:10px;letter-spacing:1.3px;color:rgba(255,255,255,.72);text-transform:uppercase}
+.mock-poster .circle{position:absolute;width:210px;height:210px;border-radius:50%;right:-55px;top:90px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}
+.mock-poster .line{height:5px;width:58%;background:var(--yellow);margin-bottom:10px}
+.wall-note{margin-top:30px;display:flex;justify-content:space-between;gap:20px;color:#8b9caf;font-size:11px}
+
+/* AWARENESS */
+.awareness-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.awareness-art{position:relative;min-height:510px}
+.awareness-art .card{position:absolute;border-radius:20px;box-shadow:0 30px 80px rgba(7,17,31,.2)}
+.awareness-art .one{width:65%;height:430px;left:0;top:25px;background:linear-gradient(145deg,#f4c542,#ff754f 58%,#092b57);transform:rotate(-5deg)}
+.awareness-art .two{width:57%;height:380px;right:0;bottom:0;background:linear-gradient(145deg,#07203b,#0b6d7d 60%,#3dd8c8);transform:rotate(6deg)}
+.awareness-art .three{width:48%;height:300px;left:27%;top:95px;background:linear-gradient(145deg,#fff,#dce8f2);transform:rotate(-1deg)}
+.awareness-art .card:after{content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.4);border-radius:12px}
+.awareness-image{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 24px 34px rgba(7,17,31,.2));animation:awarenessFloat 6s ease-in-out infinite}@keyframes awarenessFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-14px) rotate(1deg)}}
+.awareness-copy ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:13px}
+.awareness-copy li{display:flex;gap:12px;align-items:flex-start;font-size:12px;color:#637187}
+.awareness-copy li b{display:grid;place-items:center;width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:var(--ink);color:#fff;font-size:9px}
+
+/* DYNAMIC EVENTS */
+.events-section{background:#f0eee8;padding:120px 0}
+.events-section .section-title,.faq-section .section-title{color:var(--ink)}
+.event-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,260px));justify-content:start;gap:18px}
+.event-card{display:block;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 12px 32px rgba(8,42,83,.10);transition:transform .7s var(--ease),box-shadow .7s var(--ease);border:1px solid rgba(7,17,31,.08)}
+.event-card:hover{transform:translateY(-12px) rotate(.2deg);box-shadow:0 28px 55px rgba(8,42,83,.18)}
+.event-card-banner{aspect-ratio:16/10;background:#dfe8f2;overflow:hidden}
+.event-card-banner img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.event-card:hover .event-card-banner img{transform:scale(1.06)}
+.event-card-info{padding:16px 17px 18px}
+.event-card-info span{color:var(--orange);font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.event-card-info h2{font:800 18px Manrope;color:var(--ink);margin:7px 0 0;letter-spacing:-.8px}
+.event-card-info p{color:#718094;font-size:10px;margin:8px 0 0}
+
+/* FAQ */
+.faq-section{background:var(--paper);padding:120px 0}
+.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;padding:24px 0;background:none;color:var(--ink);display:flex;align-items:center;justify-content:space-between;text-align:left;font:800 16px Manrope}
+.faq-q span:last-child{font-size:24px;font-weight:400;transition:transform .4s var(--ease)}
+.faq-item.open .faq-q span:last-child{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .6s var(--ease),padding .6s var(--ease);color:#718094;font-size:12px;line-height:1.8;padding:0}
+.faq-item.open .faq-a{max-height:180px;padding:0 40px 24px 0}
+
+/* CTA */
+.final-cta{position:relative;min-height:72svh;display:grid;place-items:center;overflow:hidden;background:#07111f;color:#fff;text-align:center}
+.final-cta:before{content:"";position:absolute;width:70vw;height:70vw;border-radius:50%;border:1px solid rgba(255,255,255,.08);animation:slowSpin 24s linear infinite}
+.final-cta:after{content:"";position:absolute;width:35vw;height:35vw;border-radius:50%;background:radial-gradient(circle,rgba(255,90,47,.18),transparent 68%)}
+@keyframes slowSpin{to{transform:rotate(360deg)}}
+.cta-inner{position:relative;z-index:2}
+.cta-inner h2{font:800 clamp(50px,8vw,105px)/.86 Manrope;letter-spacing:-6px;margin:0}
+.cta-inner p{max-width:580px;color:#9eafc2;font-size:14px;line-height:1.8;margin:22px auto 30px}
+.cta-small{display:block;color:var(--yellow);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+
+/* =========================
+   EVENT PAGE / POSTER PAGE
+========================= */
+.event-page{display:block;background:#f5f7fa;padding-top:82px}.event-page.hero-disabled .event-hero,.event-page.hero-disabled .event-strip{display:none}.event-page.hero-disabled .event-main{padding-top:58px}
+.event-hero{position:relative;overflow:hidden;background:#062651;color:#fff}
+.event-hero-in{min-height:270px;padding:22px 0;display:flex;align-items:center}
+.event-grid-hero{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.82fr);gap:30px;align-items:center}
+.event-eyebrow{margin-bottom:12px}
+.event-title{font:800 clamp(40px,4.5vw,56px)/.96 Manrope;margin:0 0 10px;letter-spacing:-2.4px}
+.event-desc{color:#d5e4f5;font-size:14px;line-height:1.6;max-width:520px;margin:0}
+.race-note{display:flex;align-items:center;gap:11px;margin-top:18px;color:#fff;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.race-note:before{content:"";width:34px;height:3px;background:var(--orange)}
+.banner-wrap{position:relative;max-width:none;margin:0;display:flex;justify-content:center;filter:drop-shadow(0 25px 35px rgba(0,0,0,.25))}
+.banner{width:auto;max-width:100%;height:190px;max-height:190px;object-fit:contain;border-radius:14px;border:3px solid #fff;box-shadow:none}
+.banner-wrap:before{content:"";position:absolute;inset:-12px 12px 12px -12px;border:1px solid rgba(255,255,255,.4);border-radius:24px;transform:rotate(-2.5deg)}
+.event-strip{background:var(--orange);color:#fff;overflow:hidden}
+.event-strip-inner{display:flex;justify-content:center;gap:46px;padding:14px;font-size:10px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+.event-strip span:before{content:"✦";margin-right:11px;color:#ffce6a}
+.event-main{padding:72px 0 100px;background:linear-gradient(180deg,#f5f7fa,#fff)}
+.section-head{text-align:left;display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid #d6e0ed;padding-bottom:20px;margin-bottom:32px}
+.section-head h2{font:800 36px Manrope;margin:0;color:#092b57;letter-spacing:-1.7px}
+.section-head p{max-width:360px;text-align:right;margin:0;color:#6f8198;font-size:11px;line-height:1.6}
+.poster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,290px));justify-content:start;gap:26px;align-items:start}
+.poster-grid.poster-grid--uniform{grid-template-columns:repeat(auto-fit,minmax(240px,290px));align-items:stretch}
+.poster-grid--uniform .poster-card{display:flex;flex-direction:column}
+.poster-grid--uniform .poster-image{height:330px;display:flex;align-items:center;justify-content:center}
+.poster-grid--uniform .poster-image img{width:100%;height:100%;object-fit:contain}
+.poster-grid--uniform .poster-body{margin-top:auto}
+.poster-card{width:100%;background:#fff;border:0;border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(8,42,83,.12);transition:.7s var(--ease)}
+.poster-card:hover{transform:translateY(-9px);box-shadow:0 25px 50px rgba(8,42,83,.2)}
+.poster-image{background:#eef2f6;overflow:hidden}
+.poster-image img{width:100%;height:auto;object-fit:contain;display:block;transition:transform .8s var(--ease)}
+.poster-card:hover .poster-image img{transform:scale(1.035)}
+.poster-card[data-poster-url]{cursor:pointer}
+.free-card-art{position:relative;min-height:260px;background:linear-gradient(145deg,#092b57,#1675ae 62%,#ff7135);overflow:hidden;display:grid;place-items:center}
+.free-card-art:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,#ffffff20,transparent 45%);pointer-events:none}
+.free-card-prompt{position:relative;z-index:1;display:grid;place-items:center;text-align:center;color:#fff;padding:24px 16px 34%;text-shadow:0 2px 8px #06284999}
+.free-card-prompt i{width:44px;height:44px;border:1px dashed #ffffffc9;border-radius:50%;display:grid;place-items:center;font-size:25px;font-style:normal;margin-bottom:11px}
+.free-card-prompt strong{font:800 13px Manrope;letter-spacing:.55px}
+.free-card-prompt span{font-size:10px;margin-top:5px;color:#e5f3ff}
+.free-card-label{position:absolute!important;z-index:2;left:0;bottom:0;width:100%!important;height:auto!important;padding:0!important;filter:drop-shadow(0 8px 14px rgba(0,0,0,.22))!important}
+.poster-body{padding:17px;border-top:1px solid #e5ebf2}
+.poster-body h3{font:800 17px Manrope;margin:0 0 5px;color:#092b57}
+.poster-body p{font-size:10px;color:#74859a;margin:0 0 14px}
+.poster-body .btn{width:100%;background:var(--orange);color:#fff}
+.poster-body .btn:hover{background:#d94616}
+
+/* poster generator */
+.poster-page{display:none;background:#f5f7fa;padding-top:82px}
+.poster-page.active{display:block}
+.poster-workspace{padding:28px 0 70px}
+.back{display:inline-flex;align-items:center;gap:7px;color:#58708e;font-size:11px;font-weight:800;margin-bottom:18px}
+.back:hover{color:var(--blue)}
+.poster-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(310px,.7fr);gap:25px;align-items:start}
+.poster-preview-card,.form-card{background:#fff;border:1px solid #dfe7f1;border-radius:18px;box-shadow:var(--shadow);padding:18px}
+.poster-preview{background:#eaf0f7;border-radius:12px;padding:13px;display:flex;align-items:center;justify-content:center;min-height:400px}
+.poster-canvas{position:relative;width:100%;max-width:760px;background:#fff center/100% 100% no-repeat;box-shadow:0 12px 35px rgba(10,30,55,.13);overflow:hidden;container-type:inline-size}
+.poster-canvas .outtag{position:absolute;transform:translate(-50%,-50%);white-space:pre-wrap;line-height:1.1;text-align:center;max-width:90%;overflow:hidden}
+.poster-canvas .outtag.photo{border-radius:50%;overflow:hidden;background:#dfe7f1;display:grid;place-items:center}
+.poster-canvas .outtag.photo.no-frame{overflow:visible;background:transparent}
+.poster-canvas .outtag.photo.arch{border-radius:50% 50% 0 0 / 28% 28% 0 0;background:transparent}
+.poster-canvas .outtag.photo.free-frame{border-radius:0}
+.poster-canvas .outtag.photo img{width:100%;height:100%;object-fit:cover}
+.poster-canvas .template-preview-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;z-index:2}
+.preview-note{text-align:center;color:#7b8a9e;font-size:10px;margin:10px 0 0}
+.form-card h1{font:800 22px Manrope;margin:0;color:#092b57}
+.form-card .sub{font-size:11px;color:#6e8198;line-height:1.6;margin:6px 0 21px}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:11px;font-weight:800;margin-bottom:7px}
+.field label span{color:#c72f2f}
+.field input{height:44px;width:100%;border:1px solid #d5dfeb;border-radius:9px;padding:0 12px;outline:0;background:#fff;color:#10243c;font-size:12px}
+.field input:focus{border-color:#74a1e8;box-shadow:0 0 0 4px #1769f510}
+.filebox{border:1px dashed #b9c9dd;background:#f8fafc;border-radius:10px;padding:11px}
+.filebox input{height:auto;padding:0;border:0;background:transparent;box-shadow:none}
+.photo-actions{display:flex;gap:8px}
+.photo-actions .btn{min-height:40px;flex:1;padding:0 10px;font-size:10px}
+.photo-actions .camera{background:#edf4ff;color:#0b57d0;border:1px solid #bfd4fa}
+.photo-file{display:none}
+.photo-status{font-size:10px;color:#64809e;margin:8px 0 0}
+.generate{width:100%;height:48px;margin-top:3px;font-size:12px}
+#posterForm.generated .field{display:none}
+#downloadBtn{background:#159b55;box-shadow:0 12px 30px rgba(21,155,85,.22)}
+#downloadBtn:hover{background:#0b7d42;box-shadow:0 18px 40px rgba(21,155,85,.28)}
+.result{display:none;margin-top:15px;padding:13px;background:#eef9f2;border:1px solid #cdebd8;border-radius:10px;color:#167544;font-size:11px;line-height:1.6}
+.result.show{display:block}
+.download{width:100%;margin-top:9px}
+.bib-lookup-form{display:grid;gap:13px}.bib-lookup-form label{margin:0;font-weight:800;font-size:13px;color:#102f5a}.bib-lookup-form input{width:100%;height:52px;border:1px solid #c9d8eb;border-radius:10px;padding:0 15px;color:#102f5a;font:600 14px var(--font);outline:none;transition:border-color .2s,box-shadow .2s}.bib-lookup-form input:focus{border-color:#2869d8;box-shadow:0 0 0 3px #2869d81a}.bib-note{padding:13px 14px;border:1px solid #bfe7ce;border-radius:10px;background:#effbf3;color:#167544;font-size:12px;line-height:1.55}.lookup-modal{display:none;position:fixed;inset:0;z-index:300;background:#071a35a8;align-items:center;justify-content:center;padding:20px}.lookup-modal.show{display:flex}.lookup-dialog{width:min(390px,100%);padding:27px;background:#fff;border-radius:18px;box-shadow:0 24px 70px #071a3560;text-align:center}.lookup-dialog-icon{width:46px;height:46px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:#fff3ed;color:#ff5a36;font-size:25px;font-weight:900}.lookup-dialog h3{margin:0;color:#102f5a;font-size:20px}.lookup-dialog p{margin:10px 0 20px;color:#617895;font-size:13px;line-height:1.55}.lookup-dialog .btn{width:100%;height:45px}
+.loading{display:none;position:fixed;inset:0;background:#071a35d9;z-index:200;align-items:center;justify-content:center}
+.loading.show{display:flex}
+.loader-card{background:#fff;border-radius:18px;padding:28px 34px;text-align:center;box-shadow:0 25px 80px #0003}
+.spinner{width:30px;height:30px;border:3px solid #dbe7f8;border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;margin:auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-page{display:none;text-align:center;padding:160px 20px;background:#f5f7fa}
+.error-page.active{display:block}
+.error-page h1{font:800 60px Manrope;color:var(--ink);margin:0 0 8px}
+.error-page p{color:var(--muted);font-size:13px}
+.footer{background:#fff;color:#8192af;border-top:1px solid #e6edf6;padding:22px 0;font-size:12px}.footer-in.footer-default{display:flex;align-items:center;justify-content:center;gap:9px}.footer strong{color:#172e52}.footer-default span{color:#8192af}
+
+/* photo modals */
+.photo-editor{display:none;position:fixed;inset:0;z-index:220;background:rgba(4,20,41,.75);align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.photo-editor.show{display:flex}
+.photo-editor-card{position:relative;width:min(430px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;background:#fff;border-radius:20px;padding:22px;box-shadow:0 30px 80px #0006}
+.photo-editor-card h2{font:800 21px Manrope;margin:0;color:#092b57}
+.photo-editor-card p{font-size:11px;line-height:1.6;color:#68809a;margin:6px 0 16px}
+.crop-stage{width:min(280px,75vw);max-height:calc(100dvh - 270px);aspect-ratio:1;margin:0 auto 18px;border-radius:50%;overflow:hidden;background:#dfe8f4;position:relative;cursor:grab;touch-action:none;box-shadow:inset 0 0 0 3px #fff,0 0 0 1px #aec2d9}
+.crop-stage:after{content:"";position:absolute;inset:0;border:2px solid #f15a24;border-radius:50%;pointer-events:none}
+.crop-stage img{position:absolute;width:100%;height:100%;object-fit:contain;transform-origin:center;pointer-events:none}
+.crop-stage.no-frame{border-radius:0;overflow:hidden;background:transparent;box-shadow:none}
+.crop-stage.no-frame:after{border-radius:0;border-style:dashed}
+.crop-stage.arch{border-radius:50% 50% 0 0 / 28% 28% 0 0;background:transparent}
+.crop-stage.arch:after{border-radius:50% 50% 0 0 / 28% 28% 0 0}
+.crop-stage.rectangle{border-radius:10px;aspect-ratio:var(--crop-ratio,1);max-height:360px}
+.crop-stage.rectangle:after{border-radius:10px}
+.zoom-row{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:800;color:#092b57;margin-bottom:18px}
+.zoom-row input{width:100%;accent-color:#f15a24}
+.editor-actions{display:flex;gap:10px}
+.editor-actions .btn{flex:1}
+.photo-editor-card .editor-actions .outline{background:#f4f8fc;color:#0b477f;border:1px solid #b9d0e7}.photo-editor-card .editor-actions .outline:hover{background:#e6f1fb;color:#063967}
+.editor-close{position:absolute;right:13px;top:12px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#f0f4f8;color:#29435f;font-size:22px;line-height:1;transition:background .2s,color .2s}.editor-close:hover{background:#e9edf2;color:#f15a24}
+.camera-panel video{width:100%;background:#10233f;border-radius:14px;max-height:55vh;object-fit:cover}
+.camera-panel .editor-actions{margin-top:14px}
+
+/* responsive */
+@media(max-width:1000px){
+  .hero-grid,.event-grid-hero{grid-template-columns:1fr;gap:45px}
+  .hero-copy{text-align:center}
+  .hero-sub{margin-inline:auto}
+  .hero-actions,.hero-meta{justify-content:center}
+  .hero-art{min-height:540px}
+  .services-grid{grid-template-columns:1fr}
+  .process-wrap,.faq-grid,.awareness-grid{grid-template-columns:1fr;gap:50px}
+  .process-sticky{position:relative;top:auto}
+  .poster-wall{grid-template-columns:1fr 1fr}
+  .poster-wall .a{grid-row:span 2}
+}
+@media(max-width:760px){
+  html,body{max-width:100%;overflow-x:hidden}
+  html{scroll-padding-top:76px}
+  .container{width:min(100% - 26px,1220px)}
+  .header{height:68px}
+  .header.hide{transform:none}
+  .header-links{display:none}
+  .header-menu{display:block}
+  .header-cta{display:none}
+  .hero-marketing{min-height:auto}
+  .hero-grid{padding:104px 0 54px;gap:30px}
+  .hero-title{font-size:clamp(54px,16vw,82px);letter-spacing:-4px}
+  .hero-art{min-height:335px}
+  .hero-poster-stack{height:320px;width:min(300px,86vw)}
+  .hero-scroll{display:none}
+  .poster-graphic h3{font-size:58px}
+  .poster-graphic .runner{width:150px;height:240px;right:-15px;top:80px}
+  .marketing-section,.events-section,.faq-section{padding:64px 0}
+  .section-headline-row{display:block;margin-bottom:40px}
+  .section-title{font-size:48px;letter-spacing:-2.5px}
+  .poster-wall{grid-template-columns:1fr}
+  .mock-poster{min-height:500px}
+  .mock-poster.a{transform:none!important}
+  .wall-note{display:block;line-height:1.7}
+  .awareness-art{min-height:450px}
+  .event-grid{grid-template-columns:1fr}
+  .section-head{display:block}
+  .section-head p{text-align:left;margin-top:10px}
+  .poster-layout{grid-template-columns:1fr}
+  .poster-workspace{padding:20px 0 46px}
+  .poster-layout,.poster-preview-card,.form-card,.poster-preview{min-width:0;max-width:100%}
+  .poster-preview-card,.form-card{padding:14px}
+  .poster-preview-card.is-free-preview{padding:0}
+  .poster-canvas{width:100%!important;max-width:100%!important}
+  .poster-preview{min-height:280px}
+  .event-page{padding-top:68px}
+  .event-hero-in{min-height:0;padding:28px 0}
+  .event-grid-hero{gap:24px}
+  .event-title{font-size:38px;letter-spacing:-1.8px}
+  .banner{height:auto;max-height:220px}
+  .footer-in{display:block;text-align:center}
+  .footer-links{justify-content:center;margin-top:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .reveal,.reveal-scale{opacity:1!important;transform:none!important}
+}
+
+/* =========================================================
+   CINEMATIC REEL MOTION SYSTEM
+   Marketing layer only — Firebase/poster module is untouched.
+========================================================= */
+.cine-section{position:relative;isolation:isolate}
+.cine-pin{will-change:transform}
+.cine-stage-label{
+  position:absolute;right:28px;top:50%;z-index:30;
+  display:flex;align-items:center;gap:9px;writing-mode:vertical-rl;
+  transform:translateY(-50%);font-size:8px;font-weight:800;letter-spacing:2.5px;
+  text-transform:uppercase;color:rgba(255,255,255,.45);pointer-events:none;
+}
+.cine-stage-label:before{content:"";width:1px;height:42px;background:currentColor;opacity:.5}
+.cine-progress{
+  position:fixed;right:22px;top:50%;z-index:75;transform:translateY(-50%);
+  display:grid;gap:8px;opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+.cine-progress.is-active{opacity:1}
+.cine-progress i{display:block;width:3px;height:22px;border-radius:99px;background:rgba(255,255,255,.22);transition:height .35s ease,background .35s ease}
+.cine-progress i.on{height:42px;background:var(--orange)}
+.cine-progress.light i{background:rgba(7,17,31,.16)}
+.cine-progress.light i.on{background:var(--orange)}
+
+.hero-marketing.cinematic-ready{overflow:visible}
+.hero-marketing .hero-grid{transform-style:preserve-3d}
+.hero-art{transform-style:preserve-3d;perspective:1400px}
+.hero-poster-stack{transform-style:preserve-3d}
+.hero-banner-card{backface-visibility:hidden}
+.hero-poster-stack:before,.hero-poster-stack:after{transform-style:preserve-3d}
+.hero-scroll{transition:opacity .35s ease,transform .35s ease}
+.hero-marketing.cine-scrolling .hero-scroll{opacity:.15;transform:translateX(-50%) translateY(14px)}
+
+.services-section-cine{min-height:100svh}
+.services-section-cine .services-grid{transform-style:preserve-3d}
+.services-section-cine .service-card{will-change:transform,opacity;transform-style:preserve-3d}
+.services-section-cine .service-card:after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.0),rgba(23,105,245,.08));
+  opacity:0;transition:opacity .5s ease;
+}
+.services-section-cine .service-card.cine-focus:after{opacity:1}
+
+.process-section-cine{min-height:100svh}
+.process-section-cine .process-wrap{transform-style:preserve-3d}
+.process-section-cine .process-item{will-change:transform,opacity;transform-style:preserve-3d}
+.process-section-cine .process-sticky{will-change:transform}
+
+.showcase.cinematic-showcase{min-height:100svh}
+.showcase .poster-wall{transform-style:preserve-3d;will-change:transform}
+.showcase .mock-poster{transform-style:preserve-3d;will-change:transform,opacity}
+.showcase .mock-poster .mp-inner{transform-style:preserve-3d}
+.showcase .mock-poster.a{transform-origin:60% 50%}
+.showcase .mock-poster.b{transform-origin:50% 50%}
+.showcase .mock-poster.c{transform-origin:40% 50%}
+
+.awareness-section-cine{min-height:100svh}
+.awareness-art{transform-style:preserve-3d;perspective:1200px}
+.awareness-image{transform-style:preserve-3d;backface-visibility:hidden}
+.awareness-copy li{will-change:transform,opacity}
+
+.events-section.cinematic-events{position:relative}
+.cinematic-events .event-card{will-change:transform,opacity;transform-origin:50% 80%}
+.cinematic-events .event-card-banner{position:relative}
+.cinematic-events .event-card-banner:after{
+  content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 20%,rgba(255,255,255,.18),transparent 70%);
+  transform:translateX(-120%);pointer-events:none;
+}
+.cinematic-events .event-card.is-shine .event-card-banner:after{animation:eventShine 1.1s var(--ease) forwards}
+@keyframes eventShine{to{transform:translateX(120%)}}
+
+.faq-section.cinematic-faq{min-height:90svh}
+.cinematic-faq .faq-item{will-change:transform,opacity}
+
+.final-cta.cinematic-cta{min-height:100svh}
+.final-cta .cta-inner{transform-style:preserve-3d;will-change:transform,opacity}
+.final-cta:before{transform-style:preserve-3d}
+
+.cine-copy-reveal{clip-path:inset(0 0 100% 0);opacity:0}
+.cine-copy-reveal.is-revealed{clip-path:inset(0 0 0 0);opacity:1}
+
+@media(max-width:1000px){
+  .cine-progress{right:10px}
+  .cine-stage-label{right:12px}
+  .hero-marketing .hero-grid{gap:35px}
+}
+@media(max-width:760px){
+  .cine-progress{right:8px;gap:6px}
+  .cine-progress i{height:15px}
+  .cine-progress i.on{height:28px}
+  .cine-stage-label{display:none}
+  .hero-marketing,.services-section-cine,.process-section-cine,.showcase.cinematic-showcase,.awareness-section-cine,.final-cta.cinematic-cta{min-height:auto}
+  /* Collections are swipeable on phones: keep the page vertically calm and let
+     people browse events/posters with a natural left-to-right gesture. */
+  .event-grid,.poster-grid,.poster-grid.poster-grid--uniform{
+    display:flex;
+    grid-template-columns:none;
+    justify-content:flex-start;
+    align-items:stretch;
+    gap:15px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+    padding:2px 18px 18px 1px;
+    margin-right:-13px;
+    scrollbar-width:none;
+  }
+  .event-grid::-webkit-scrollbar,.poster-grid::-webkit-scrollbar{display:none}
+  .event-card,.poster-card{
+    flex:0 0 min(78vw,280px);
+    width:min(78vw,280px);
+    max-width:none;
+    scroll-snap-align:start;
+  }
+  .poster-grid--uniform .poster-image{height:330px}
+}
+@media(prefers-reduced-motion:reduce){
+  .cine-progress,.cine-stage-label{display:none!important}
+  .cine-section{min-height:auto!important}
+}
+.showcase-cards-image{display:block;width:min(100%,1040px);margin:0 auto;filter:drop-shadow(0 32px 58px rgba(0,0,0,.3));animation:showcaseFloat 6s ease-in-out infinite}.poster-wall:has(.showcase-cards-image){display:block}.poster-wall:has(.showcase-cards-image) .mock-poster{display:none}@keyframes showcaseFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}.photo-actions .outline,.form-card .outline{background:#fff;color:#092b57;border:1px solid #bfd2e7}.photo-actions .outline:hover,.form-card .outline:hover{background:#edf4ff;color:#0b57d0}.public-page-header .header-links,.public-page-header .header-cta,.public-page-header .header-menu{display:none}.poster-page{padding-top:82px}
+
+.poster-preview-card:has(.free-template-canvas),.poster-preview-card.is-free-preview{padding:0;overflow:hidden}.poster-preview-card:has(.free-template-canvas) .preview-note,.poster-preview-card.is-free-preview .preview-note{display:none}.poster-preview:has(.free-template-canvas),.poster-preview-card.is-free-preview .poster-preview{min-height:0;padding:0;background:transparent}.free-template-canvas{background:linear-gradient(145deg,#e7edf5,#f9fbfd)!important;overflow:hidden;cursor:pointer}.free-template-canvas .free-photo-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#14243c}.free-template-canvas .free-label-preview{position:absolute;left:0;bottom:0;z-index:2;width:100%;height:auto;pointer-events:none}.free-placeholder{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#41617f;padding-bottom:18%}.free-placeholder-icon{width:58px;height:58px;margin:0 auto 15px;border:1px dashed #91abc6;border-radius:50%;display:grid;place-items:center;font-size:25px;color:#1769f5;background:#ffffff9c}.free-placeholder strong{font:800 14px Manrope;letter-spacing:.4px;color:#183b62}.free-placeholder span{margin-top:7px;font-size:11px;color:#66809a}.filebox.upload-focus-highlight{border-color:#1769f5;box-shadow:0 0 0 5px #1769f526;animation:uploadFieldPulse 1.15s ease-in-out 2}@keyframes uploadFieldPulse{50%{transform:scale(1.012);background:#eff6ff}}.free-upload-notice{position:fixed;left:50%;bottom:24px;z-index:400;transform:translate(-50%,18px);max-width:calc(100vw - 32px);padding:12px 17px;border-radius:999px;background:#092b57;color:#fff;box-shadow:0 14px 38px #092b574d;font:700 13px var(--font);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}.free-upload-notice.show{opacity:1;transform:translate(-50%,0)}@media(max-width:600px){.photo-editor{padding:10px;align-items:center}.photo-editor-card{width:100%;max-height:calc(100dvh - 20px);padding:19px 16px}.photo-editor-card p{margin-bottom:10px}.crop-stage{width:min(240px,66vw);max-height:calc(100dvh - 242px);margin-bottom:11px}.zoom-row{margin-bottom:12px}.editor-actions .btn{min-height:48px;padding-inline:8px;font-size:11px}}
+</style>
+
+<!-- Motion engine for the marketing layer only. Existing Firebase/poster logic below is untouched. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<script>(function(){const parts=location.pathname.split('/').filter(Boolean),host=location.hostname.toLowerCase(),isMainHost=host==='posterready.vercel.app'||host==='localhost'||host==='127.0.0.1';if(isMainHost&&!parts.length)return;document.documentElement.classList.add('event-brand-pending');try{const key=isMainHost?'slug:'+parts[0]:'host:'+host,cached=JSON.parse(localStorage.getItem('posterready_event_brand:'+key)||'null');if(cached?.logo)window.__eventBrandCache=cached}catch(error){}})();</script>
+<body class="is-loading">
+<div class="noise"></div>
+<div id="siteLoader" class="site-loader" role="status" aria-label="Loading Poster Ready"><div class="loader-brand"><img id="loaderLogo" src="/logo.png" alt="Poster Ready"></div><div class="loader-caption">Getting your run ready</div></div>
+
+<header class="header" id="siteHeader">
+  <div class="container header-in">
+    <a class="brand" href="/" onclick="goHome(event)">
+      <img id="headerLogo" class="brand-logo" src="/logo.png" alt="Poster Ready">
+    </a>
+    <nav class="header-links" aria-label="Main navigation">
+      <a class="header-link" href="#services">What We Create</a>
+      <a class="header-link" href="#process">How It Works</a>
+      <a class="header-link" href="#events">Active Events</a>
+      <a class="header-link" href="#faq">FAQ</a>
+    </nav>
+    <a class="header-cta" href="#events">Explore Posters <span>↗</span></a>
+    <button class="header-menu" type="button" aria-label="Open navigation" onclick="document.getElementById('mobileNav').classList.toggle('open')">☰</button>
+  </div>
+  <div id="mobileNav" style="display:none"></div>
+</header>
+<script>(function(){const cached=window.__eventBrandCache;if(!cached?.logo)return;for(const image of [document.getElementById('headerLogo'),document.getElementById('loaderLogo')]){if(image){image.src=cached.logo;image.alt=cached.alt||'Event logo'}}document.documentElement.classList.remove('event-brand-pending')})();</script>
+
+<div id="loading" class="loading">
+  <div class="loader-card">
+    <div class="spinner"></div>
+    <div style="font-weight:800;margin-top:12px;font-family:Manrope">Preparing your poster…</div>
+    <div style="font-size:10px;color:#74839a;margin-top:4px">Please wait</div>
+  </div>
+</div>
+
+<div id="photoEditor" class="photo-editor">
+  <div class="photo-editor-card">
+    <button type="button" class="editor-close" aria-label="Close photo editor" onclick="closePhotoEditor()">×</button>
+    <h2>Adjust your photo</h2>
+    <p>Drag the photo to position it inside the circle. Use the slider to zoom.</p>
+    <div id="cropStage" class="crop-stage"><img id="cropImage" alt="Photo crop preview"></div>
+    <label class="zoom-row">Zoom <input id="photoZoom" type="range" min="1" max="3" step="0.01" value="1"></label>
+    <div class="editor-actions">
+      <button id="chooseAnotherPhotoButton" type="button" class="btn outline" onclick="chooseAnotherPhoto()">Choose another image</button>
+      <button id="retakePhotoButton" type="button" class="btn outline hidden" onclick="retakePhoto()">Retake photo</button>
+      <button type="button" class="btn primary" onclick="applyPhotoCrop()">Use this photo</button>
+    </div>
+  </div>
+</div>
+
+<div id="cameraEditor" class="photo-editor">
+  <div class="photo-editor-card camera-panel">
+    <button type="button" class="editor-close" aria-label="Close camera" onclick="closeCamera()">×</button>
+    <h2>Take a photo</h2>
+    <p>Center your face inside the frame, then capture.</p>
+    <video id="cameraVideo" autoplay playsinline></video>
+    <div class="editor-actions">
+      <button type="button" class="btn outline" onclick="closeCamera()">Cancel</button>
+      <button type="button" class="btn primary" onclick="capturePhoto()">Capture photo</button>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ================= HOME / MARKETING PAGE ================= -->
+<section id="homePage" class="home-page">
+
+  <section class="hero-marketing cine-section" id="top" data-cine="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse-dot"></span> Personalized Event Poster Studio</div>
+        <h1 class="hero-title">
+          Make every<br>
+          <em>mile</em> worth<br>
+          sharing.
+        </h1>
+        <p class="hero-sub">
+          Poster Ready turns marathon moments, event campaigns and social-awareness stories
+          into beautiful personalized posters people actually want to share.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#events">Explore Live Events <span>↗</span></a>
+          <a class="btn outline" href="#services">See What We Create</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>01</strong><span>Choose an event</span></div>
+          <div><strong>02</strong><span>Personalise</span></div>
+          <div><strong>03</strong><span>Share your story</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art reveal-scale" aria-hidden="true">
+        <div class="poster-orbit"></div>
+        <div class="hero-poster-stack" data-parallax="0.08">
+          <img class="hero-banner-card" src="/banner-card.png" alt="Poster Ready personalized poster preview">
+          <div class="hero-poster"></div>
+          <div class="hero-poster"></div>
+          <div class="hero-poster main-poster">
+            <div class="poster-graphic">
+              <div><small>POSTER READY / 2026</small></div>
+              <div>
+                <div class="stripe"></div>
+                <h3>RUN<br>YOUR<br>STORY</h3>
+              </div>
+              <div><p>RUN · CONNECT · BELONG</p></div>
+              <div class="runner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cine-stage-label">Scroll driven poster story</div>
+    <div class="hero-scroll">Scroll to explore<i></i></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Marathon Posters</span><span>Personalised Race Posters</span><span>Event Campaigns</span><span>Social Awareness</span><span>Community Stories</span><span>Marathon Posters</span><span>Personalised Race Posters</span><span>Event Campaigns</span><span>Social Awareness</span><span>Community Stories</span>
+    </div>
+  </div>
+
+  <section id="services" class="marketing-section section-light cine-section services-section-cine" data-cine="services">
+    <div class="container">
+      <div class="section-headline-row reveal">
+        <div>
+          <div class="section-kicker">What we create</div>
+          <h2 class="section-title">Not just a poster.<br>A shareable moment.</h2>
+        </div>
+        <p class="section-copy">Every campaign can become a visual system — built for runners, communities, causes and the people who make events memorable.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <span class="service-no">01 / RACE</span><span class="service-icon">RUN</span>
+          <h3>Marathon & Run Posters</h3>
+          <p>Personalised race creatives that put the participant at the centre of the event story.</p>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-no">02 / SOCIAL</span><span class="service-icon">ACT</span>
+          <h3>Social Awareness</h3>
+          <p>Campaign-ready poster experiences for causes, awareness movements and community initiatives.</p>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-no">03 / SHARE</span><span class="service-icon">GO</span>
+          <h3>Designed to Share</h3>
+          <p>Fast, mobile-first personalisation so participants can create, download and share without friction.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="marketing-section section-dark cine-section process-section-cine" data-cine="process">
+    <div class="container process-wrap">
+      <div class="process-sticky reveal">
+        <div class="section-kicker">The experience</div>
+        <h2 class="section-title">Three steps.<br>One story.</h2>
+        <p class="section-copy">The product stays simple for the participant while the experience around it feels premium.</p>
+      </div>
+      <div class="process-list">
+        <article class="process-item reveal">
+          <div class="num">01</div>
+          <div><h3>Pick your event.</h3><p>Discover the live event collection and choose the poster design that fits your moment.</p></div>
+        </article>
+        <article class="process-item reveal">
+          <div class="num">02</div>
+          <div><h3>Make it yours.</h3><p>Add the participant details and, where required, a profile photo. The poster preview updates instantly.</p></div>
+        </article>
+        <article class="process-item reveal">
+          <div class="num">03</div>
+          <div><h3>Download. Share. Inspire.</h3><p>Your final creative is generated in the browser and is ready to share with your community.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="marketing-section showcase section-dark cine-section cinematic-showcase" id="showcase" data-cine="showcase">
+    <div class="container">
+      <div class="section-headline-row reveal">
+        <div>
+          <div class="section-kicker">Visual language</div>
+          <h2 class="section-title">Built to stop<br>the scroll.</h2>
+        </div>
+        <p class="section-copy">Bold type. Strong composition. Event energy. Every template can carry the identity of the campaign while still making the participant feel seen.</p>
+      </div>
+      <div class="poster-wall">
+        <img class="showcase-cards-image" src="/3cards.png" alt="Poster Ready campaign poster designs">
+        <div class="mock-poster a reveal-scale" data-wall-speed="0.16"><div class="mp-inner"><span class="mp-tag">MARATHON / PERSONAL</span><div><div class="line"></div><h3>MOVE<br>WITH<br>PURPOSE</h3></div><p>EVERY MILE HAS A STORY</p><span class="circle"></span></div></div>
+        <div class="mock-poster b reveal-scale" data-wall-speed="-0.10"><div class="mp-inner"><span class="mp-tag">COMMUNITY / CAUSE</span><div><div class="line"></div><h3>RUN<br>FOR<br>MORE</h3></div><p>PEOPLE · PLANET · PURPOSE</p></div></div>
+        <div class="mock-poster c reveal-scale" data-wall-speed="0.08"><div class="mp-inner"><span class="mp-tag">EVENT / 2026</span><div><div class="line"></div><h3>SHOW<br>UP<br>STRONG</h3></div><p>THE START IS YOURS</p></div></div>
+      </div>
+      <div class="wall-note"><span>Poster Ready / Digital Poster Studio</span><span>Designed for events, campaigns & communities</span></div>
+    </div>
+  </section>
+
+  <section class="marketing-section section-cyan cine-section awareness-section-cine" id="awareness" data-cine="awareness">
+    <div class="container awareness-grid">
+      <div class="awareness-art reveal-scale">
+        <img class="awareness-image" src="/card.png" alt="Poster Ready campaign poster collection">
+      </div>
+      <div class="awareness-copy reveal">
+        <div class="section-kicker">Beyond race day</div>
+        <h2 class="section-title">One platform.<br>More reasons to share.</h2>
+        <p class="section-copy">Poster Ready can be the public-facing creative layer for an event — from the first awareness message to the final participant share.</p>
+        <ul>
+          <li><b>01</b><span>Awareness campaigns that feel like part of the same visual world.</span></li>
+          <li><b>02</b><span>Event-specific poster collections that can grow as new designs are published.</span></li>
+          <li><b>03</b><span>Mobile-first personalisation designed around the participant journey.</span></li>
+          <li><b>04</b><span>Consistent branding across race, cause and community communication.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="events-section cine-section cinematic-events" data-cine="events">
+    <div class="container">
+      <div class="section-headline-row reveal">
+        <div>
+          <div class="section-kicker">Live collections</div>
+          <h2 class="section-title">Choose your<br>event.</h2>
+        </div>
+        <p class="section-copy">Published event collections appear here automatically. Choose a collection to explore its posters and personalise your favourite design.</p>
+      </div>
+      <div id="eventGrid" class="event-grid"></div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq-section cine-section cinematic-faq" data-cine="faq">
+    <div class="container faq-grid">
+      <div class="reveal">
+        <div class="section-kicker">FAQ</div>
+        <h2 class="section-title">Questions?<br>We've got you.</h2>
+        <p class="section-copy">A few things participants usually want to know before creating their poster.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <button class="faq-q" type="button"><span>What is Poster Ready?</span><span>+</span></button>
+          <div class="faq-a">Poster Ready is a digital poster experience for events and campaigns. Participants can choose a published design, add their details and create a personalised poster.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span>Can I use my own photo?</span><span>+</span></button>
+          <div class="faq-a">If the selected poster includes a photo field, you can upload a supported image or use your device camera and adjust the crop before generating the poster.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span>How do I get my poster?</span><span>+</span></button>
+          <div class="faq-a">Choose an event, select a published poster, enter the requested details and generate the final poster. The finished image can then be downloaded.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span>Are new event posters added?</span><span>+</span></button>
+          <div class="faq-a">Published collections can be updated with new designs, so revisit your event page whenever the organiser releases another poster.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span>Is this only for marathons?</span><span>+</span></button>
+          <div class="faq-a">The experience is designed around event and awareness communication. The same public poster journey can support races, community campaigns and other visual initiatives.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta cine-section cinematic-cta" data-cine="cta">
+    <div class="cta-inner reveal-scale">
+      <span class="cta-small">Poster Ready / Make the moment visible</span>
+      <h2>Every event<br>deserves a story.</h2>
+      <p>Explore the latest poster collections and turn your next event moment into something people want to keep, post and share.</p>
+      <a class="btn primary" href="#events">Explore Live Events <span>↗</span></a>
+    </div>
+  </section>
+</section>
+
+<!-- ================= EVENT PAGE ================= -->
+<section id="eventPage" class="event-page hidden">
+  <div class="event-hero">
+    <div class="container event-hero-in">
+      <div class="event-grid-hero">
+        <div>
+          <div class="event-eyebrow"><span class="pulse-dot"></span> Official Poster Collection</div>
+          <h1 id="eventName" class="event-title">Loading event…</h1>
+          <p id="eventDesc" class="event-desc">Explore the available posters for this event.</p>
+          <div class="race-note">Run. Connect. Belong.</div>
+        </div>
+        <div id="bannerWrap" class="banner-wrap hidden"><img id="eventBanner" class="banner" alt="Event banner"></div>
+      </div>
+    </div>
+  </div>
+  <div class="event-strip"><div class="event-strip-inner"><span>Marathon Moments</span><span>Move for a Cause</span><span>Make Every Mile Count</span></div></div>
+  <div class="event-main">
+    <div class="container">
+      <div class="section-head"><h2>Available Posters</h2><p>Choose your design, add your details and create your personalised event story.</p></div>
+      <div id="posterGrid" class="poster-grid"></div>
+      <div id="certificatesSection" class="hidden" style="margin-top:54px"><div class="section-head"><h2>Available Certificates</h2><p>Choose a certificate template, add your details and download your personalised certificate.</p></div><div id="certificateGrid" class="poster-grid"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POSTER GENERATOR ================= -->
+<section id="posterPage" class="poster-page">
+  <div class="poster-workspace">
+    <div class="container">
+      <a href="#" id="backEvent" class="back" onclick="backToEvent(event)">← Back to event</a>
+      <div class="poster-layout">
+        <div class="poster-preview-card">
+          <div id="posterPreview" class="poster-preview"><div id="posterCanvas" class="poster-canvas"></div></div>
+          <p class="preview-note">Your details will appear in the poster preview.</p>
+        </div>
+        <div class="form-card">
+          <h1 id="posterName">Generate your poster</h1>
+          <p id="posterSub" class="sub">Fill in the details below. Your information is used only to create this poster in your browser.</p>
+          <form id="posterForm"></form>
+          <div id="result" class="result"></div>
+          <button id="downloadBtn" class="btn primary download" style="display:none" onclick="downloadGenerated(event)">↓ Download Poster</button>
+          <button id="newBtn" class="btn outline download" style="display:none" onclick="generateAgain(event)">Create Another Poster</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="errorPage" class="error-page">
+  <div class="container">
+    <h1 id="errorCode">404</h1>
+    <p id="errorText">The requested page could not be found.</p>
+    <a class="btn primary" href="/" onclick="goHome(event)" style="margin-top:15px">View Events</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer"><div class="container footer-in footer-default">2026 © <strong>Yeppo Booking</strong><span>Powered by Maxco Systems</span></div></footer>
+
+<script type="module">
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
+import {getFirestore,collection,getDocs,getDoc,setDoc,doc,query,where,serverTimestamp} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js';
+
+const firebaseConfig={apiKey:"AIzaSyCwBwbkHEh4-UgahkxagK_LTqMM-tJezhU",authDomain:"maxco-certificate-generator.firebaseapp.com",projectId:"maxco-certificate-generator",storageBucket:"maxco-certificate-generator.firebasestorage.app",messagingSenderId:"981719172067",appId:"1:981719172067:web:0a4d08aeb52a5f229c16d6"};
+const app=initializeApp(firebaseConfig),db=getFirestore(app);
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const parts=location.pathname.split('/').filter(Boolean);
+const hostName=location.hostname.toLowerCase().replace(/^www\./,'');
+const normalizeDomain=value=>String(value||'').trim().toLowerCase().replace(/^https?:\/\//,'').replace(/\/.*$/,'').replace(/^www\./,'');
+const suppressCertificateLookupLoader=(parts[1]==='certificates'&&parts.length===3)||(parts[0]==='certificates'&&parts.length===2);
+let events=[],posters=[],freeTemplates=[],certificates=[],currentEvent=null,currentPoster=null,generatedCanvas=null,objectUrls=[];
+let lookupParticipants=null;
+let photoEdits={},activePhotoKey='',cameraStream=null,dragPhoto=null,photoWasCaptured=false;
+const templateOverlayCache=new Map();
+const origin=location.origin;
+
+function showLoading(v){if(suppressCertificateLookupLoader)return;$('loading').classList.toggle('show',v)}
+function eventRootUrl(event){const domain=normalizeDomain(event?.customDomain);return domain&&event?.customDomainStatus==='connected'?'https://'+domain+'/':origin+'/'+event.slug+'/'}
+function publicPosterUrl(e,p){return eventRootUrl(e)+p.slug+'/'}
+function publicCertificateUrl(e,c){return eventRootUrl(e)+'certificates/'+c.slug+'/'}
+function showError(code,text){$('homePage').style.display='none';$('eventPage').classList.add('hidden');$('posterPage').classList.remove('active');$('errorPage').classList.add('active');$('errorCode').textContent=code;$('errorText').textContent=text}
+function goHome(e){if(e)e.preventDefault();history.pushState({},'', '/');location.reload()}
+function customDomainEvent(){return events.find(event=>event.customDomainStatus==='connected'&&normalizeDomain(event.customDomain)===hostName)}
+function backToEvent(e){e.preventDefault();if(currentEvent){history.pushState({},'', customDomainEvent()?'/':'/'+currentEvent.slug+'/');location.reload()}else goHome(e)}
+function imgOk(url){return typeof url==='string'&&/^https?:\/\//i.test(url)}
+function applyEventBrand(event=null){const logo=imgOk(event?.headerLogoUrl)?event.headerLogoUrl:'/logo.png',label=event?.name?event.name+' logo':'Poster Ready';for(const image of [$('headerLogo'),$('loaderLogo')]){if(!image)continue;image.src=logo;image.alt=label}if(event){try{const payload=JSON.stringify({logo:imgOk(event.headerLogoUrl)?event.headerLogoUrl:'',alt:label}),host=location.hostname.toLowerCase();localStorage.setItem('posterready_event_brand:slug:'+event.slug,payload);localStorage.setItem('posterready_event_brand:host:'+host,payload)}catch(error){}}document.documentElement.classList.remove('event-brand-pending')}
+
+async function loadData(){
+showLoading(true);
+try{
+const [es,ps,fs,cs]=await Promise.all([getDocs(collection(db,'posterEvents')),getDocs(collection(db,'posterTemplates')),getDocs(collection(db,'freeTemplates')).catch(err=>{console.warn('Free templates are unavailable until Firestore rules allow access.',err);return {docs:[]}}),getDocs(collection(db,'certificateTemplates')).catch(err=>{console.warn('Certificate templates are unavailable until Firestore rules allow access.',err);return {docs:[]}})]);
+events=es.docs.map(d=>({id:d.id,...d.data()}));posters=ps.docs.map(d=>({id:d.id,...d.data()}));freeTemplates=fs.docs.map(d=>({id:d.id,...d.data()}));certificates=cs.docs.map(d=>({id:d.id,...d.data()}));
+route();
+}catch(err){console.error(err);showError('Connection error','We could not load the poster collection right now. Please try again.')}
+finally{showLoading(false)}
+}
+
+async function routeEvent(event,routeParts){
+currentEvent=event;applyEventBrand(event);
+if(!routeParts.length){renderEvent();return}
+if(routeParts[0]==='certificates'&&routeParts[1]&&routeParts[2]){
+  try{const snap=await getDocs(query(collection(db,'generatedCertificates'),where('uniqueId','==',decodeURIComponent(routeParts[2]))));const record=snap.docs.map(document=>({id:document.id,...document.data()})).find(item=>item.eventSlug===currentEvent.slug&&item.certificateSlug===routeParts[1]);if(!record){showError('404','This certificate link is not available.');return}renderStoredCertificate(record);return}catch(error){console.error(error);showError('Certificate unavailable','We could not load this certificate right now.');return}
+}
+const posterSlug=routeParts[0],certificateSlug=routeParts[0]==='certificates'?routeParts[1]:'',freeTemplate=freeTemplates.find(template=>template.eventId===currentEvent.id&&template.status==='published'&&(template.slug||'share_your_marathon_experience')===posterSlug);currentPoster=certificateSlug?certificates.find(certificate=>certificate.eventId===currentEvent.id&&certificate.slug===certificateSlug&&certificate.status==='published'):posters.find(poster=>poster.eventId===currentEvent.id&&poster.slug===posterSlug&&poster.status==='published');
+if(currentPoster&&certificateSlug){currentPoster={...currentPoster,isCertificate:true};try{const campaignSnap=await getDocs(query(collection(db,'certificateCampaigns'),where('certificateSlug','==',certificateSlug)));const campaign=campaignSnap.docs.map(document=>({id:document.id,...document.data()})).find(item=>item.eventSlug===currentEvent.slug&&item.lookupMode==='onDemand'&&item.participantsUrl);if(campaign)currentPoster.lookupCampaign=campaign}catch(error){console.warn('Certificate lookup data unavailable',error)}}
+if(freeTemplate)currentPoster={id:'free_'+freeTemplate.id,slug:freeTemplate.slug||'share_your_marathon_experience',name:freeTemplate.name||'Share Your Marathon Experience',isFreeTemplate:true,freeLabelUrl:freeTemplate.labelUrl,templateWidth:1080,templateHeight:1350,tags:[{key:'free_photo',type:'image',label:'Upload your marathon photo',required:true,shape:'rectangle',width:100,x:50,y:50}]};
+if(!currentPoster){showError('404','This poster does not exist or has not been published.');return}
+renderPoster()
+}
+
+async function route(){
+const hostedEvent=customDomainEvent();
+if(hostedEvent){await routeEvent(hostedEvent,parts);return}
+if(parts.length===0){renderHome();return}
+const event=events.find(item=>item.slug===parts[0]);
+if(!event){showError('404','This event does not exist or is no longer available.');return}
+await routeEvent(event,parts.slice(1));
+}
+
+function renderStoredCertificate(record){
+ $('siteHeader').style.display='';$('siteHeader').classList.add('public-page-header');$('homePage').style.display='none';$('eventPage').classList.add('hidden');$('errorPage').classList.remove('active');$('posterPage').classList.add('active');
+ $('posterName').textContent='Your Certificate';$('posterSub').textContent='Your personalised certificate is ready to download.';$('backEvent').textContent='← Back to '+currentEvent.name;
+ const preview=$('posterPreview');preview.innerHTML=`<img src="${esc(record.fileUrl)}" alt="Certificate for ${esc(record.participantName||'participant')}" style="display:block;max-width:100%;max-height:68vh;object-fit:contain;box-shadow:0 12px 35px rgba(10,30,55,.13)">`;
+ const form=$('posterForm');form.innerHTML=`<div class="result show">Certificate prepared for <b>${esc(record.participantName||'participant')}</b>.</div><a class="btn primary download" href="${esc(record.fileUrl)}" target="_blank" rel="noopener" download>↓ Download Certificate</a>`;
+ $('downloadBtn').style.display='none';$('newBtn').style.display='none';
+}
+
+function renderHome(){
+applyEventBrand();$('siteHeader').style.display='';$('siteHeader').classList.remove('public-page-header');$('errorPage').classList.remove('active');$('eventPage').classList.add('hidden');$('posterPage').classList.remove('active');$('homePage').style.display='block';
+const list=events.filter(e=>e.slug);
+if(!list.length){$('eventGrid').innerHTML='<div class="event-empty" style="grid-column:1/-1"><h2>Events coming soon</h2><p>Please check back shortly for poster collections.</p></div>';return}
+$('eventGrid').innerHTML=list.map(e=>`<a class="event-card" href="${esc(eventRootUrl(e))}"><div class="event-card-banner">${imgOk(e.bannerUrl)?`<img src="${esc(e.bannerUrl)}" alt="${esc(e.name)} banner" loading="lazy">`:'<div style="height:100%;display:grid;place-items:center;color:#7890aa;font-size:12px">Event banner</div>'}</div><div class="event-card-info"><span>Official poster collection</span><h2>${esc(e.name)}</h2><p>View posters and personalize your design →</p></div></a>`).join('');
+}
+
+function renderEvent(){
+applyEventBrand(currentEvent);$('siteHeader').style.display='';$('siteHeader').classList.add('public-page-header');$('homePage').style.display='none';$('errorPage').classList.remove('active');$('posterPage').classList.remove('active');$('eventPage').classList.remove('hidden');$('eventPage').classList.toggle('hero-disabled',currentEvent.heroEnabled===false);
+$('eventName').textContent=currentEvent.name;
+$('eventDesc').textContent='Create and share a personalized poster for '+currentEvent.name+'.';
+if(imgOk(currentEvent.bannerUrl)){$('eventBanner').src=currentEvent.bannerUrl;$('bannerWrap').classList.remove('hidden')}else $('bannerWrap').classList.add('hidden');
+const list=posters.filter(p=>p.eventId===currentEvent.id&&p.status==='published');
+const free=freeTemplates.filter(t=>t.eventId===currentEvent.id&&t.status==='published'),freeCard=free.map(template=>{const freeUrl=eventRootUrl(currentEvent)+(template.slug||'share_your_marathon_experience')+'/';return `<article class="poster-card free-template-card" data-poster-url="${freeUrl}" tabindex="0" role="link"><div class="poster-image free-card-art"><div class="free-card-prompt"><i>↑</i><strong>YOUR IMAGE WILL BE PLACED HERE</strong><span>Upload a photo or capture a moment</span></div><img class="free-card-label" src="${esc(template.labelUrl)}" alt="${esc(template.name||'Event')} footer label"></div><div class="poster-body"><h3>${esc(template.name||'Share Your Marathon Experience')}</h3><p>Upload any photo, add the event footer and download.</p><a class="btn primary" href="${freeUrl}">Create Free Poster <span>→</span></a></div></article>`}).join('');
+const totalCards=list.length+free.length;
+$('posterGrid').classList.toggle('poster-grid--uniform',totalCards>0&&totalCards<5);
+$('posterGrid').innerHTML=freeCard+list.map(p=>`<article class="poster-card" data-poster-url="${esc(publicPosterUrl(currentEvent,p))}" tabindex="0" role="link"><div class="poster-image">${imgOk(p.templateUrl)?`<img src="${esc(p.templateUrl)}" alt="${esc(p.name)} poster template" loading="lazy">`:'<div style="height:100%;display:grid;place-items:center;color:#8290a3;font-size:11px">Preview unavailable</div>'}</div><div class="poster-body"><h3>${esc(p.name)}</h3><p>Personalize this poster with your details.</p><a class="btn primary" href="${esc(publicPosterUrl(currentEvent,p))}">Create Poster <span>→</span></a></div></article>`).join('');
+$('posterGrid').onclick=e=>{if(e.target.closest('a,button'))return;const card=e.target.closest('[data-poster-url]');if(card)location.href=card.dataset.posterUrl};
+$('posterGrid').onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&!e.target.closest('a,button')){const card=e.target.closest('[data-poster-url]');if(card){e.preventDefault();location.href=card.dataset.posterUrl}}};
+const certificateList=certificates.filter(c=>c.eventId===currentEvent.id&&c.status==='published');
+const certificateSection=$('certificatesSection'),certificateGrid=$('certificateGrid');
+certificateSection.classList.toggle('hidden',!certificateList.length);
+certificateGrid.innerHTML=certificateList.map(c=>{const url=publicCertificateUrl(currentEvent,c);return `<article class="poster-card" data-certificate-url="${esc(url)}" tabindex="0" role="link"><div class="poster-image">${imgOk(c.templateUrl)?`<img src="${esc(c.templateUrl)}" alt="${esc(c.name)} certificate template" loading="lazy">`:'<div style="height:100%;display:grid;place-items:center;color:#8290a3;font-size:11px">Preview unavailable</div>'}</div><div class="poster-body"><span style="color:#159b55;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase">Certificate</span><h3>${esc(c.name)}</h3><p>Personalize and download your certificate.</p><a class="btn primary" href="${esc(url)}">Create Certificate <span>→</span></a></div></article>`}).join('');
+certificateGrid.onclick=e=>{if(e.target.closest('a,button'))return;const card=e.target.closest('[data-certificate-url]');if(card)location.href=card.dataset.certificateUrl};
+certificateGrid.onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&!e.target.closest('a,button')){const card=e.target.closest('[data-certificate-url]');if(card){e.preventDefault();location.href=card.dataset.certificateUrl}}};
+}
+
+function showLookupDialog(message){
+ let modal=$('lookupModal');
+ if(!modal){modal=document.createElement('div');modal.id='lookupModal';modal.className='lookup-modal';modal.innerHTML='<div class="lookup-dialog" role="dialog" aria-modal="true" aria-labelledby="lookupDialogTitle"><div class="lookup-dialog-icon">!</div><h3 id="lookupDialogTitle">Certificate not found</h3><p id="lookupDialogMessage"></p><button class="btn primary" type="button" id="lookupDialogClose">Try again</button></div>';document.body.appendChild(modal);$('lookupDialogClose').onclick=()=>{modal.classList.remove('show');$('bibLookup')?.focus()};modal.onclick=event=>{if(event.target===modal)modal.classList.remove('show')}}
+ $('lookupDialogMessage').textContent=message;modal.classList.add('show');
+}
+
+function pongalurCategoryForBib(bib){const value=String(bib).trim();if(!/^\d+$/.test(value))return '';return value.startsWith('3')?'3 KM':value.startsWith('6')?'6 KM':value.startsWith('1')?'10 KM':''}
+
+function renderOnDemandCertificate(){
+ const campaign=currentPoster.lookupCampaign,form=$('posterForm');
+ $('siteHeader').style.display='none';document.querySelector('.footer').style.display='none';$('backEvent').style.display='none';$('homePage').style.display='none';$('eventPage').classList.add('hidden');$('errorPage').classList.remove('active');$('posterPage').classList.add('active');
+ $('posterName').textContent=currentPoster.name;
+ $('backEvent').textContent='← Back to '+currentEvent.name;
+ $('posterSub').textContent='Enter your BIB number to find and download your certificate.';$('result').classList.remove('show');$('downloadBtn').style.display='none';$('newBtn').style.display='none';
+ setupPosterCanvas();
+ const isPongalur=currentEvent.slug==='pongalur_marathon';
+ const tagKind=tag=>`${tag.key||''} ${tag.label||''} ${tag.placeholder||''}`.toLowerCase();
+ const completeCertificate=async record=>{form.innerHTML='';for(const tag of (currentPoster.tags||[])){if(tag.type!=='text')continue;const input=document.createElement('input');input.type='hidden';input.dataset.key=tag.key;input.dataset.type='text';input.value=record.fields?.[tag.key]??tag.sample??'';form.appendChild(input)}updateLivePreview();generatedCanvas=await renderToCanvas();form.style.display='none';$('result').textContent='Your certificate is ready. Download it below.';$('result').classList.add('show');$('downloadBtn').textContent='↓ Download Certificate';$('downloadBtn').style.display='flex';$('newBtn').textContent='Submit Another Response';$('newBtn').onclick=e=>{if(e)e.preventDefault();$('loading').classList.add('show');setTimeout(()=>{generatedCanvas=null;$('result').classList.remove('show');$('downloadBtn').style.display='none';$('newBtn').style.display='none';renderLookupForm();updateLivePreview();window.scrollTo({top:0,behavior:'smooth'});$('loading').classList.remove('show');$('bibLookup').focus()},350)};$('newBtn').style.display='flex';$('downloadBtn').scrollIntoView({behavior:'smooth',block:'nearest'})};
+ const showNewPongalurEntry=(bib,category)=>{form.style.display='grid';form.innerHTML=`<label for="participantName">Enter your name <span>*</span></label><input id="participantName" autocomplete="name" placeholder="Enter your full name"><label for="participantCategory">Category</label><input id="participantCategory" value="${category}" readonly><div class="bib-note">Your ${category} category has been assigned from BIB number ${bib}. These details will be saved for this BIB number.</div><button class="btn primary generate" type="submit">Generate Certificate</button>`;form.onsubmit=async event=>{event.preventDefault();const name=$('participantName').value.trim();if(!name){showLookupDialog('Please enter your name to continue.');return}$('loading').classList.add('show');try{const fields={};for(const tag of (currentPoster.tags||[])){if(tag.type!=='text')continue;const descriptor=tagKind(tag);fields[tag.key]=/(name|participant)/.test(descriptor)?name:/(bib|race.?no|number)/.test(descriptor)?bib:/(category|distance|km|race)/.test(descriptor)?category:(tag.sample||'')}const entryRef=doc(db,'certificateSelfEntries',`${campaign.id||campaign.slug}__${bib}`);await setDoc(entryRef,{campaignId:campaign.id||campaign.slug,eventSlug:currentEvent.slug,certificateSlug:currentPoster.slug,bib,fields,createdAt:serverTimestamp(),updatedAt:serverTimestamp()},{merge:true});await completeCertificate({bib,fields})}catch(error){console.error(error);showLookupDialog('Could not save your certificate details. Please try again.')}finally{$('loading').classList.remove('show')}}};
+ const renderLookupForm=()=>{form.className='bib-lookup-form';form.style.display='grid';form.noValidate=true;form.innerHTML=`<label for="bibLookup">Enter your BIB number <span>*</span></label><input id="bibLookup" autocomplete="off" inputmode="numeric" placeholder="Enter your BIB number"><div class="bib-note">Your certificate will be generated only after a matching BIB number is found.</div><button class="btn primary generate" type="submit">Find My Certificate</button>`;form.onsubmit=async event=>{event.preventDefault();const bib=$('bibLookup').value.trim();if(!bib){showLookupDialog('Please enter your BIB number and try again.');return}$('loading').classList.add('show');try{if(!lookupParticipants){const response=await fetch(campaign.participantsUrl);if(!response.ok)throw Error('Participant data could not be loaded');const data=await response.json();lookupParticipants=data.participants||[]}let record=lookupParticipants.find(item=>String(item.bib).trim().toLowerCase()===bib.toLowerCase());if(!record){const saved=await getDoc(doc(db,'certificateSelfEntries',`${campaign.id||campaign.slug}__${bib}`));if(saved.exists())record={bib,...saved.data()}}if(record){await completeCertificate(record);return}const category=isPongalur?pongalurCategoryForBib(bib):'';if(category){showNewPongalurEntry(bib,category);return}showLookupDialog('This BIB number does not have a certificate record. Please check the number and try again.')}catch(error){console.error(error);showLookupDialog('We could not prepare your certificate. Please try again.')}finally{$('loading').classList.remove('show')}}};
+ renderLookupForm();
+ updateLivePreview();
+}
+
+function renderPoster(){
+if(currentPoster.lookupCampaign){renderOnDemandCertificate();return}
+applyEventBrand(currentEvent);$('siteHeader').style.display='';$('siteHeader').classList.add('public-page-header');$('homePage').style.display='none';$('eventPage').classList.add('hidden');$('errorPage').classList.remove('active');$('posterPage').classList.add('active');
+$('posterName').textContent=currentPoster.name;
+$('posterSub').textContent=currentPoster.isFreeTemplate?'Upload or capture a marathon moment. Your event footer will be added automatically.':currentPoster.isCertificate?'Enter the requested details below. Your certificate is generated directly in your browser.':'Enter the requested details below. Your poster is generated directly in your browser.';
+$('backEvent').textContent='← Back to '+currentEvent.name;
+buildForm();setupPosterCanvas();
+}
+
+function buildForm(){
+const form=$('posterForm');form.innerHTML='';
+const tags=currentPoster.tags||[];
+if(!tags.length){form.innerHTML='<div class="empty" style="padding:30px 10px"><h3>No fields configured</h3><p>This poster is not ready for public generation.</p></div>';return}
+tags.forEach(t=>{
+const wrap=document.createElement('div');wrap.className='field';
+const label=document.createElement('label');label.innerHTML=esc(t.label||t.key)+(t.required?' <span>*</span>':'');wrap.appendChild(label);
+if(t.type==='image'){
+const box=document.createElement('div');box.className='filebox';const input=document.createElement('input');input.className='photo-file';input.type='file';input.accept='image/png,image/jpeg,image/webp';input.dataset.key=t.key;input.dataset.type='image';input.required=!!t.required;input.onchange=()=>{const file=input.files?.[0],fromCamera=input.dataset.cameraRequest==='true';delete input.dataset.cameraRequest;input.removeAttribute('capture');input.accept='image/png,image/jpeg,image/webp';if(file){showLoading(true);if(t.removeBackground||t.shape==='prm6IceArch')removeCertificatePhotoBackground(t.key,file,fromCamera);else openPhotoEditor(t.key,file,fromCamera)}};const actions=document.createElement('div');actions.className='photo-actions';const choose=document.createElement('button');choose.type='button';choose.className='btn outline';choose.textContent='Upload photo';choose.onclick=()=>{input.removeAttribute('capture');delete input.dataset.cameraRequest;input.accept='image/png,image/jpeg,image/webp';input.click()};const camera=document.createElement('button');camera.type='button';camera.className='btn camera';camera.id='cameraBtn_'+t.key;camera.textContent='Capture photo';camera.onclick=()=>openCamera(t.key);actions.append(choose,camera);const status=document.createElement('div');status.className='photo-status';status.id='photoStatus_'+t.key;status.textContent=currentPoster.isFreeTemplate?'JPG, PNG or WebP — adjust and crop before use':(t.removeBackground||t.shape==='prm6IceArch')?'JPG, PNG or WebP — background will be removed':'JPG, PNG or WebP';box.append(input,actions,status);wrap.appendChild(box);
+}else{
+const input=document.createElement('input');input.type='text';input.placeholder=t.placeholder||'';input.value='';input.dataset.key=t.key;input.dataset.type='text';input.required=!!t.required;wrap.appendChild(input);
+}
+form.appendChild(wrap)
+});
+form.addEventListener('input',updateLivePreview);
+form.addEventListener('change',updateLivePreview);
+const btn=document.createElement('button');btn.type='submit';btn.className='btn primary generate';btn.textContent='Generate Poster';form.appendChild(btn);
+form.onsubmit=generatePoster;
+}
+
+function setupPosterCanvas(){
+const c=$('posterCanvas');c.innerHTML='';c.style.containerType='inline-size';c.classList.toggle('free-template-canvas',!!currentPoster.isFreeTemplate);c.closest('.poster-preview-card')?.classList.toggle('is-free-preview',!!currentPoster.isFreeTemplate);c.style.backgroundImage='';
+ c.onclick=currentPoster.isFreeTemplate?focusFreeTemplateUpload:null;
+const fitPreview=(w,h)=>{const maxH=Math.min(window.innerHeight*.68,760),available=c.parentElement.clientWidth||760,maxW=Math.min(760,available);c.style.aspectRatio=`${w}/${h}`;c.style.width=Math.min(maxW,maxH*(w/h))+'px';c.style.maxWidth='100%';c.style.maxHeight='none'};
+const w=currentPoster.templateWidth||1080,h=currentPoster.templateHeight||1080;fitPreview(w,h);
+if(imgOk(currentPoster.templateUrl)){const template=new Image();template.onload=()=>{currentPoster.templateWidth=template.naturalWidth;currentPoster.templateHeight=template.naturalHeight;fitPreview(template.naturalWidth,template.naturalHeight);updateLivePreview()};template.src=currentPoster.templateUrl}
+if(currentPoster.isFreeTemplate)updateLivePreview()
+}
+
+function valueMap(){
+const m={};$('posterForm').querySelectorAll('[data-key]').forEach(el=>{if(el.dataset.type==='image'){m[el.dataset.key]=el.files?.[0]||null}else m[el.dataset.key]=el.value});return m
+}
+
+function fileToUrl(file){if(!file)return '';const u=URL.createObjectURL(file);objectUrls.push(u);return u}
+
+function cropTransform(edit){return `translate(${(edit?.x||0)*100}%,${(edit?.y||0)*100}%) scale(${edit?.scale||1})`}
+function fittedNameFont(tag,text,baseSize){const key=(tag.key||'').toLowerCase(),label=(tag.label||'').toLowerCase(),sample=(tag.sample||'').toLowerCase(),isName=key.includes('name')||label.includes('name')||label.includes('participant')||sample.includes('name')||sample.includes('participant'),count=String(text||'').trim().length;if(!isName||count<=15)return baseSize;return Math.max(baseSize*.42,baseSize*(15/count))}
+function cssFontFamily(font){const value=String(font||'Arial');return value==='Cinzel Bold'?'Cinzel':value==='Montserrat SemiBold'?'Montserrat':value}
+async function removeCertificatePhotoBackground(key,file,fromCamera=false){const status=$('photoStatus_'+key);try{if(status)status.textContent='Removing background…';const response=await fetch('/api/remove-background',{method:'POST',headers:{'Content-Type':file.type||'image/jpeg'},body:file});if(!response.ok){const data=await response.json().catch(()=>({}));throw Error(data.error||'Background removal failed')}const cutout=new File([await response.blob()],'profile-cutout.png',{type:'image/png'});if(status)status.textContent='Background removed — adjust your photo';openPhotoEditor(key,cutout,fromCamera)}catch(error){console.error(error);if(status)status.textContent='Background removal failed — original photo selected';openPhotoEditor(key,file,fromCamera);alert('Could not remove this photo background. You can still adjust the original photo.')}}
+function setCameraAction(key,retake){const button=$('cameraBtn_'+key);if(button)button.textContent=retake?'Retake photo':'Capture photo'}
+function freePoints(tag){const points=tag?.freePoints;return points?.length===8?points:[{x:0,y:0},{x:.5,y:0},{x:1,y:0},{x:1,y:.5},{x:1,y:1},{x:.5,y:1},{x:0,y:1},{x:0,y:.5}]}
+function freeClip(tag){return 'polygon('+freePoints(tag).map(p=>(p.x*100)+'% '+(p.y*100)+'%').join(',')+')'}
+function resolvedPhotoShape(tag){const width=Number(tag?.width||25),height=Number(tag?.frameHeight||width);return tag?.shape==='circle'&&Math.abs(width-height)>.01?'rectangle':(tag?.shape||'circle')}
+function paintCropEditor(){const edit=photoEdits[activePhotoKey];if(!edit)return;const tag=(currentPoster.tags||[]).find(t=>t.key===activePhotoKey),shape=resolvedPhotoShape(tag),stage=$('cropStage'),freeCrop=!!currentPoster.isFreeTemplate,isRectangle=freeCrop||['square','rectangle'].includes(shape);stage.classList.toggle('no-frame',!freeCrop&&shape==='none');stage.classList.toggle('arch',!freeCrop&&['arch','prm6Arch','prm6IceArch'].includes(shape));stage.classList.toggle('rectangle',isRectangle);stage.style.setProperty('--crop-ratio',freeCrop?`${edit.cropAspect||1}/1`:`${tag?.width||25}/${tag?.frameHeight||tag?.width||25}`);stage.style.clipPath=!freeCrop&&shape==='free'?freeClip(tag):'';$('cropImage').src=edit.src;$('cropImage').style.transform=cropTransform(edit);$('photoZoom').value=edit.scale||1;$('photoEditor').querySelector('p').textContent=freeCrop?'Drag to choose the area you want. Use the slider to zoom, then use this photo.':'Drag the photo to position it inside the frame. Use the slider to zoom.';$('retakePhotoButton').classList.toggle('hidden',!photoWasCaptured);$('chooseAnotherPhotoButton').classList.toggle('hidden',photoWasCaptured)}
+function openPhotoEditor(key,file,fromCamera=false){const reader=new FileReader();reader.onload=()=>{const startEditor=cropAspect=>{activePhotoKey=key;photoWasCaptured=fromCamera;photoEdits[key]={src:reader.result,scale:1,x:0,y:0,cropAspect};paintCropEditor();$('photoEditor').classList.add('show');showLoading(false)};if(!currentPoster.isFreeTemplate){startEditor(1);return}const image=new Image();image.onload=()=>startEditor(image.naturalWidth/image.naturalHeight||1);image.onerror=()=>startEditor(1);image.src=reader.result};reader.onerror=()=>{showLoading(false);alert('Could not read this image. Please try another photo.')};reader.readAsDataURL(file)}
+function selectFreePhoto(key,file,fromCamera=false){const reader=new FileReader();reader.onload=()=>{photoEdits[key]={src:reader.result,scale:1,x:0,y:0};const status=$('photoStatus_'+key);if(status)status.textContent='Photo selected — ready to generate';setCameraAction(key,fromCamera);updateLivePreview();showLoading(false)};reader.onerror=()=>{showLoading(false);alert('Could not read this image. Please try another photo.')};reader.readAsDataURL(file)}
+function focusFreeTemplateUpload(){const input=$('posterForm')?.querySelector('[data-key="free_photo"]');if(!input)return;const field=input.closest('.field')||input,box=input.closest('.filebox')||field;field.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>{input.focus({preventScroll:true});box.classList.remove('upload-focus-highlight');void box.offsetWidth;box.classList.add('upload-focus-highlight');let notice=document.querySelector('.free-upload-notice');if(!notice){notice=document.createElement('div');notice.className='free-upload-notice';document.body.appendChild(notice)}const rect=box.getBoundingClientRect(),top=rect.top>70?rect.top-54:rect.bottom+12;notice.style.left=(rect.left+rect.width/2)+'px';notice.style.top=top+'px';notice.style.bottom='auto';notice.textContent='↑ Upload your photo here';notice.classList.add('show');clearTimeout(window.freeUploadNoticeTimer);window.freeUploadNoticeTimer=setTimeout(()=>{notice.classList.remove('show');box.classList.remove('upload-focus-highlight')},2600)},430)}
+function closePhotoEditor(){$('photoEditor').classList.remove('show');activePhotoKey='';photoWasCaptured=false}
+function chooseAnotherPhoto(){const key=activePhotoKey,field=$('posterForm')?.querySelector(`[data-key="${key}"]`);if(field)field.click()}
+function retakePhoto(){const key=activePhotoKey;if(!key)return;$('photoEditor').classList.remove('show');photoWasCaptured=false;openCamera(key)}
+function flattenPhotoCrop(edit,transparent=false){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{const size=1200,aspect=currentPoster.isFreeTemplate?Math.max(.2,Math.min(5,edit.cropAspect||1)):1,width=size,height=Math.round(size/aspect),canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');if(!transparent){ctx.fillStyle='#dfe7f1';ctx.fillRect(0,0,width,height)}const base=currentPoster.isFreeTemplate?Math.max(width/image.naturalWidth,height/image.naturalHeight):Math.min(size/image.naturalWidth,size/image.naturalHeight),scale=base*(edit.scale||1),dw=image.naturalWidth*scale,dh=image.naturalHeight*scale,dx=(width-dw)/2+(edit.x||0)*width,dy=(height-dh)/2+(edit.y||0)*height;ctx.drawImage(image,dx,dy,dw,dh);resolve(canvas.toDataURL(transparent?'image/png':'image/jpeg',transparent?undefined:.96))};image.onerror=reject;image.src=edit.src})}
+async function applyPhotoCrop(){const key=activePhotoKey,edit=photoEdits[key];if(!key||!edit)return;showLoading(true);try{const tag=(currentPoster.tags||[]).find(t=>t.key===key);edit.src=await flattenPhotoCrop(edit,!!tag?.removeBackground);edit.scale=1;edit.x=0;edit.y=0;const status=$('photoStatus_'+key);if(status)status.textContent='Photo selected — drag and zoom applied';setCameraAction(key,photoWasCaptured);$('photoEditor').classList.remove('show');activePhotoKey='';photoWasCaptured=false;updateLivePreview()}catch(err){console.error(err);alert('Could not prepare this photo. Please try another image.')}finally{showLoading(false)}}
+function beginPhotoDrag(e){if(!activePhotoKey)return;e.preventDefault();const rect=$('cropStage').getBoundingClientRect(),edit=photoEdits[activePhotoKey];dragPhoto={x:e.clientX,y:e.clientY,baseX:edit.x||0,baseY:edit.y||0,rect};$('cropStage').setPointerCapture?.(e.pointerId)}
+function movePhotoDrag(e){if(!dragPhoto||!activePhotoKey)return;const edit=photoEdits[activePhotoKey];edit.x=dragPhoto.baseX+(e.clientX-dragPhoto.x)/dragPhoto.rect.width;edit.y=dragPhoto.baseY+(e.clientY-dragPhoto.y)/dragPhoto.rect.height;paintCropEditor()}
+function endPhotoDrag(){dragPhoto=null}
+async function openCamera(key){activePhotoKey=key;const mobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);if(mobile){const input=$('posterForm')?.querySelector(`[data-key="${key}"]`);if(input){input.dataset.cameraRequest='true';input.accept='image/*';input.setAttribute('capture','user');input.click();return}}try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'user'},width:{ideal:1920},height:{ideal:1080}},audio:false});$('cameraVideo').srcObject=cameraStream;$('cameraEditor').classList.add('show')}catch(err){alert('Camera access was not available. Please allow camera permission or upload a photo instead.');activePhotoKey=''}}
+function closeCamera(){if(cameraStream)cameraStream.getTracks().forEach(track=>track.stop());cameraStream=null;$('cameraVideo').srcObject=null;$('cameraEditor').classList.remove('show')}
+function capturePhoto(){const video=$('cameraVideo');if(!video.videoWidth)return;showLoading(true);const canvas=document.createElement('canvas');canvas.width=video.videoWidth;canvas.height=video.videoHeight;canvas.getContext('2d').drawImage(video,0,0);canvas.toBlob(blob=>{if(!blob){showLoading(false);return}const key=activePhotoKey,file=new File([blob],'camera-photo.jpg',{type:'image/jpeg'}),input=$('posterForm').querySelector(`[data-key="${key}"]`),tag=(currentPoster.tags||[]).find(t=>t.key===key);if(input&&window.DataTransfer){const transfer=new DataTransfer();transfer.items.add(file);input.files=transfer.files}closeCamera();if(tag?.removeBackground||tag?.shape==='prm6IceArch')removeCertificatePhotoBackground(key,file,true);else openPhotoEditor(key,file,true)},'image/jpeg',.92)}
+$('cropStage').addEventListener('pointerdown',beginPhotoDrag);window.addEventListener('pointermove',movePhotoDrag);window.addEventListener('pointerup',endPhotoDrag);$('photoZoom').addEventListener('input',e=>{if(activePhotoKey&&photoEdits[activePhotoKey]){photoEdits[activePhotoKey].scale=Number(e.target.value);paintCropEditor()}});
+
+function updateLivePreview(){
+if(!currentPoster)return;const values=valueMap(),c=$('posterCanvas');c.innerHTML='';
+if(currentPoster.isFreeTemplate){const file=values.free_photo,edit=photoEdits.free_photo,source=edit?.src||(file?fileToUrl(file):'');if(source){const photo=document.createElement('img');photo.className='free-photo-preview';photo.src=source;photo.onload=()=>{const w=photo.naturalWidth,h=photo.naturalHeight,available=c.parentElement.clientWidth||760;c.style.aspectRatio=`${w}/${h}`;c.style.width=available+'px';addFreeLabel(c)};c.appendChild(photo)}else{c.innerHTML='<div class="free-placeholder"><div class="free-placeholder-icon">↑</div><strong>YOUR IMAGE WILL BE PLACED HERE</strong><span>Upload a photo or capture a new moment</span></div>';addFreeLabel(c)}return}
+for(const t of (currentPoster.tags||[])){
+const el=document.createElement('div');el.className='outtag '+(t.type==='image'?'photo':'');el.style.left=(t.x??50)+'%';el.style.top=(t.y??50)+'%';el.style.transform=`translate(-50%,-50%) rotate(${t.rotation||0}deg)`;
+if(t.type==='image'){const file=values[t.key],edit=photoEdits[t.key],size=t.width||25,frameHeight=t.frameHeight||size,noFrame=t.shape==='none',arch=['arch','prm6Arch','prm6IceArch'].includes(t.shape),free=t.shape==='free',iceFrame=t.shape==='prm6IceArch';el.style.width=size+'cqw';el.style.height=frameHeight+'%';el.style.aspectRatio='auto';el.style.borderRadius=t.shape==='circle'?'50%':arch?'50% 50% 0 0 / 38% 38% 0 0':'0';el.classList.toggle('no-frame',noFrame);el.classList.toggle('arch',arch);el.classList.toggle('free-frame',free);el.style.clipPath=free?freeClip(t):'';if(noFrame)el.style.overflow='visible';if(edit?.src||file){el.style.background='transparent';const im=document.createElement('img');im.src=edit?.src||fileToUrl(file);im.style.transform=cropTransform(edit);el.appendChild(im)}else el.textContent='PHOTO';if(iceFrame){const overlay=document.createElement('img');overlay.src='/assets/prm6-ice-arch-frame.png';overlay.alt='';overlay.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;z-index:2';el.appendChild(overlay)}}
+else{const text=values[t.key]||t.sample||t.label||t.key;el.textContent=text;el.style.color=t.color||'#14243c';el.style.fontFamily=cssFontFamily(t.fontFamily);el.style.fontWeight=t.fontWeight||'700';el.style.textAlign=t.align||'center';el.style.fontSize=fittedNameFont(t,text,t.fontSize||5)+'cqw';el.style.width='max-content'}
+c.appendChild(el)
+}
+}
+
+function tracePhotoFrame(ctx,tag,w,h){const shape=resolvedPhotoShape(tag),x=(tag.x??50)*w/100,y=(tag.y??50)*h/100,sizeW=(tag.width||25)*w/100,sizeH=(tag.frameHeight||tag.width||25)*h/100;ctx.translate(x,y);ctx.rotate((tag.rotation||0)*Math.PI/180);ctx.beginPath();if(shape==='circle')ctx.ellipse(0,0,sizeW/2,sizeH/2,0,0,Math.PI*2);else if(['arch','prm6Arch','prm6IceArch'].includes(shape)){const left=-sizeW/2,top=-sizeH/2,r=sizeW/2,archH=Math.min(sizeH*.76,r);ctx.moveTo(left,top+sizeH);ctx.lineTo(left,top+archH);ctx.ellipse(0,top+archH,r,archH,0,Math.PI,0);ctx.lineTo(left+sizeW,top+sizeH);ctx.closePath()}else if(shape==='free'){const points=freePoints(tag);ctx.moveTo(-sizeW/2+points[0].x*sizeW,-sizeH/2+points[0].y*sizeH);points.slice(1).forEach(point=>ctx.lineTo(-sizeW/2+point.x*sizeW,-sizeH/2+point.y*sizeH));ctx.closePath()}else ctx.rect(-sizeW/2,-sizeH/2,sizeW,sizeH)}
+function isInsidePhotoFrame(px,py,tag,w,h){const x=(tag.x??50)*w/100,y=(tag.y??50)*h/100,sizeW=(tag.width||25)*w/100,sizeH=(tag.frameHeight||tag.width||25)*h/100,angle=-(tag.rotation||0)*Math.PI/180,dx=px-x,dy=py-y,lx=dx*Math.cos(angle)-dy*Math.sin(angle),ly=dx*Math.sin(angle)+dy*Math.cos(angle),shape=resolvedPhotoShape(tag);if(shape==='circle')return(lx/(sizeW/2))**2+(ly/(sizeH/2))**2<=1;if(['arch','prm6Arch','prm6IceArch'].includes(shape)){const top=-sizeH/2,archH=Math.min(sizeH*.76,sizeW/2);if(lx<-sizeW/2||lx>sizeW/2||ly>sizeH/2||ly<top)return false;return ly>=top+archH||((lx/(sizeW/2))**2+((ly-(top+archH))/archH)**2<=1)}return lx>=-sizeW/2&&lx<=sizeW/2&&ly>=-sizeH/2&&ly<=sizeH/2}
+function templateWithPhotoCutouts(template,backTags,w,h){const overlay=document.createElement('canvas');overlay.width=w;overlay.height=h;const ctx=overlay.getContext('2d',{willReadFrequently:true});ctx.drawImage(template,0,0,w,h);if(!backTags.length)return overlay;const image=ctx.getImageData(0,0,w,h),data=image.data,total=w*h,candidate=new Uint8Array(total),visited=new Uint8Array(total);for(let y=0;y<h;y++)for(let x=0;x<w;x++){if(!backTags.some(tag=>isInsidePhotoFrame(x,y,tag,w,h)))continue;const index=(y*w+x)*4,r=data[index],g=data[index+1],b=data[index+2],spread=Math.max(r,g,b)-Math.min(r,g,b),light=(r+g+b)/3;if(spread<12&&light>=165)candidate[y*w+x]=1}for(let start=0;start<total;start++){if(!candidate[start]||visited[start])continue;const component=[],queue=[start];visited[start]=1;const base=start*4,baseR=data[base],baseG=data[base+1],baseB=data[base+2];for(let cursor=0;cursor<queue.length;cursor++){const point=queue[cursor],x=point%w,y=Math.floor(point/w);component.push(point);for(const next of [x>0?point-1:-1,x<w-1?point+1:-1,y>0?point-w:-1,y<h-1?point+w:-1]){if(next<0||visited[next]||!candidate[next])continue;const pixel=next*4;if(Math.abs(data[pixel]-baseR)>2||Math.abs(data[pixel+1]-baseG)>2||Math.abs(data[pixel+2]-baseB)>2)continue;visited[next]=1;queue.push(next)}}if(component.length<=400)component.forEach(point=>{data[point*4+3]=0})}ctx.putImageData(image,0,0);return overlay}
+function addTemplatePreviewOverlay(canvas,backTags=[],renderId=''){if(!imgOk(currentPoster?.templateUrl))return;const overlay=document.createElement('img');overlay.className='template-preview-overlay';overlay.alt='';const isCurrent=()=>canvas.isConnected&&canvas.dataset.previewRender===String(renderId),cacheKey=`${currentPoster.id||currentPoster.templateUrl}:${JSON.stringify(backTags.map(tag=>[tag.key,tag.x,tag.y,tag.width,tag.frameHeight,tag.shape,tag.rotation]))}`,cached=templateOverlayCache.get(cacheKey);if(cached){overlay.src=cached;if(isCurrent())canvas.appendChild(overlay);return}overlay.src=currentPoster.templateUrl;if(isCurrent())canvas.appendChild(overlay);if(!backTags.length){templateOverlayCache.set(cacheKey,currentPoster.templateUrl);return}loadImage(currentPoster.templateUrl).then(template=>{const source=templateWithPhotoCutouts(template,backTags,template.naturalWidth,template.naturalHeight).toDataURL('image/png');templateOverlayCache.set(cacheKey,source);if(isCurrent())overlay.src=source}).catch(()=>{templateOverlayCache.set(cacheKey,currentPoster.templateUrl)})}
+function appendPosterPreviewTag(canvas,tag,values){const el=document.createElement('div');el.className='outtag '+(tag.type==='image'?'photo':'');el.style.left=(tag.x??50)+'%';el.style.top=(tag.y??50)+'%';el.style.transform=`translate(-50%,-50%) rotate(${tag.rotation||0}deg)`;if(tag.type==='image'){const shape=resolvedPhotoShape(tag),file=values[tag.key],edit=photoEdits[tag.key],size=tag.width||25,frameHeight=tag.frameHeight||size,noFrame=shape==='none',arch=['arch','prm6Arch','prm6IceArch'].includes(shape),free=shape==='free',iceFrame=shape==='prm6IceArch';el.style.width=size+'cqw';el.style.height=frameHeight+'%';el.style.aspectRatio='auto';el.style.borderRadius=shape==='circle'?'50%':arch?'50% 50% 0 0 / 38% 38% 0 0':'0';el.style.zIndex=tag.layer==='back'?'1':'3';el.classList.toggle('no-frame',noFrame);el.classList.toggle('arch',arch);el.classList.toggle('free-frame',free);el.style.clipPath=free?freeClip(tag):'';if(noFrame)el.style.overflow='visible';if(edit?.src||file){el.style.background='transparent';const image=document.createElement('img');image.src=edit?.src||fileToUrl(file);image.style.transform=cropTransform(edit);el.appendChild(image)}else el.textContent='PHOTO';if(iceFrame){const overlay=document.createElement('img');overlay.src='/assets/prm6-ice-arch-frame.png';overlay.alt='';overlay.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;z-index:2';el.appendChild(overlay)}}else{const text=values[tag.key]||tag.sample||tag.label||tag.key;el.textContent=text;el.style.color=tag.color||'#14243c';el.style.fontFamily=cssFontFamily(tag.fontFamily);el.style.fontWeight=tag.fontWeight||'700';el.style.textAlign=tag.align||'center';el.style.fontSize=fittedNameFont(tag,text,tag.fontSize||5)+'cqw';el.style.width='max-content';el.style.zIndex='4'}canvas.appendChild(el)}
+updateLivePreview=function(){if(!currentPoster)return;const values=valueMap(),canvas=$('posterCanvas'),renderId=String((Number(canvas.dataset.previewRender||'0')+1));canvas.dataset.previewRender=renderId;canvas.innerHTML='';if(currentPoster.isFreeTemplate){const file=values.free_photo,edit=photoEdits.free_photo,source=edit?.src||(file?fileToUrl(file):'');if(source){const photo=document.createElement('img');photo.className='free-photo-preview';photo.src=source;photo.onload=()=>{const w=photo.naturalWidth,h=photo.naturalHeight,available=canvas.parentElement.clientWidth||760;canvas.style.aspectRatio=`${w}/${h}`;canvas.style.width=available+'px';addFreeLabel(canvas)};canvas.appendChild(photo)}else{canvas.innerHTML='<div class="free-placeholder"><div class="free-placeholder-icon">↑</div><strong>YOUR IMAGE WILL BE PLACED HERE</strong><span>Upload a photo or capture a new moment</span></div>';addFreeLabel(canvas)}return}const tags=currentPoster.tags||[],backTags=tags.filter(tag=>tag.type==='image'&&tag.layer==='back');backTags.forEach(tag=>appendPosterPreviewTag(canvas,tag,values));addTemplatePreviewOverlay(canvas,backTags,renderId);tags.filter(tag=>!(tag.type==='image'&&tag.layer==='back')).forEach(tag=>appendPosterPreviewTag(canvas,tag,values))}
+async function drawPosterPhotoTag(ctx,tag,values,w,h){const file=values[tag.key],edit=photoEdits[tag.key];if(!file&&!edit?.src)return;const url=edit?.src||URL.createObjectURL(file);try{const image=await loadImage(url),shape=resolvedPhotoShape(tag),x=(tag.x??50)*w/100,y=(tag.y??50)*h/100,sizeW=(tag.width||25)*w/100,sizeH=(tag.frameHeight||tag.width||25)*h/100,base=Math.max(sizeW/image.naturalWidth,sizeH/image.naturalHeight),scale=base*(edit?.scale||1),dw=image.naturalWidth*scale,dh=image.naturalHeight*scale,drawX=-dw/2+(edit?.x||0)*sizeW,drawY=-dh/2+(edit?.y||0)*sizeH;ctx.save();ctx.translate(x,y);ctx.rotate((tag.rotation||0)*Math.PI/180);if(shape!=='none'){ctx.beginPath();if(shape==='circle')ctx.ellipse(0,0,sizeW/2,sizeH/2,0,0,Math.PI*2);else if(['arch','prm6Arch','prm6IceArch'].includes(shape)){const left=-sizeW/2,top=-sizeH/2,r=sizeW/2,archH=Math.min(sizeH*.76,r);ctx.moveTo(left,top+sizeH);ctx.lineTo(left,top+archH);ctx.ellipse(0,top+archH,r,archH,0,Math.PI,0);ctx.lineTo(left+sizeW,top+sizeH);ctx.closePath()}else if(shape==='free'){const points=freePoints(tag);ctx.moveTo(-sizeW/2+points[0].x*sizeW,-sizeH/2+points[0].y*sizeH);points.slice(1).forEach(point=>ctx.lineTo(-sizeW/2+point.x*sizeW,-sizeH/2+point.y*sizeH));ctx.closePath()}else ctx.rect(-sizeW/2,-sizeH/2,sizeW,sizeH);ctx.clip()}ctx.drawImage(image,drawX,drawY,dw,dh);ctx.restore()}finally{if(!edit?.src)URL.revokeObjectURL(url)}}
+async function drawPosterFrameOverlay(ctx,tag,w,h){if(tag.shape!=='prm6IceArch')return;const frame=await loadImage('/assets/prm6-ice-arch-frame.png'),x=(tag.x??50)*w/100,y=(tag.y??50)*h/100,sizeW=(tag.width||25)*w/100,sizeH=(tag.frameHeight||tag.width||25)*h/100;ctx.save();ctx.translate(x,y);ctx.rotate((tag.rotation||0)*Math.PI/180);ctx.drawImage(frame,-sizeW/2,-sizeH/2,sizeW,sizeH);ctx.restore()}
+renderToCanvas=async function(){if(currentPoster.isFreeTemplate){const values=valueMap(),edit=photoEdits.free_photo,file=values.free_photo;if(!file&&!edit?.src)throw Error('Please upload or capture a photo first');const source=edit?.src||URL.createObjectURL(file),photo=await loadImage(source),sourceW=photo.naturalWidth,sourceH=photo.naturalHeight,maxSide=1920,ratio=Math.min(1,maxSide/Math.max(sourceW,sourceH)),w=Math.max(1,Math.round(sourceW*ratio)),h=Math.max(1,Math.round(sourceH*ratio)),canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');ctx.drawImage(photo,0,0,w,h);const label=await loadImage(currentPoster.freeLabelUrl),b=opaqueBounds(label),labelH=Math.min(h,w*(b.h/b.w));ctx.drawImage(label,b.x,b.y,b.w,b.h,0,h-labelH,w,labelH);if(!edit?.src)URL.revokeObjectURL(source);return canvas}if(!currentPoster.templateUrl)throw Error('Missing template');const background=await loadImage(currentPoster.templateUrl),w=background.naturalWidth||currentPoster.templateWidth||1080,h=background.naturalHeight||currentPoster.templateHeight||1080,canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d'),values=valueMap(),tags=currentPoster.tags||[],backTags=tags.filter(tag=>tag.type==='image'&&tag.layer==='back');await Promise.all([...new Set(tags.filter(tag=>tag.type==='text').map(tag=>cssFontFamily(tag.fontFamily)))].map(font=>document.fonts?.load(`700 16px "${font}"`)||Promise.resolve()));for(const tag of backTags)await drawPosterPhotoTag(ctx,tag,values,w,h);ctx.drawImage(templateWithPhotoCutouts(background,backTags,w,h),0,0,w,h);for(const tag of backTags)await drawPosterFrameOverlay(ctx,tag,w,h);for(const tag of tags){if(tag.type==='image'){if(tag.layer!=='back'){await drawPosterPhotoTag(ctx,tag,values,w,h);await drawPosterFrameOverlay(ctx,tag,w,h)}continue}let text=String(values[tag.key]||'');if(text.length>100)text=text.slice(0,100);const size=fittedNameFont(tag,text,tag.fontSize||5)*w/100;ctx.save();ctx.translate((tag.x??50)*w/100,(tag.y??50)*h/100);ctx.rotate((tag.rotation||0)*Math.PI/180);ctx.fillStyle=tag.color||'#14243c';ctx.font=`${tag.fontWeight||700} ${size}px "${cssFontFamily(tag.fontFamily)}"`;ctx.textAlign=tag.align||'center';ctx.textBaseline='middle';ctx.fillText(text,0,0,w*.9);ctx.restore()}return canvas}
+
+async function generatePoster(e){
+e.preventDefault();const form=$('posterForm');if(!form.reportValidity())return;
+showLoading(true);
+try{updateLivePreview();await new Promise(r=>setTimeout(r,120));generatedCanvas=await renderToCanvas();$('result').textContent='Your personalized poster is ready. Download it below.';$('result').classList.add('show');form.classList.add('generated');form.querySelector('.generate').style.display='none';$('downloadBtn').style.display='flex';$('newBtn').style.display='flex';$('downloadBtn').scrollIntoView({behavior:'smooth',block:'nearest'})}
+catch(err){console.error(err);alert('Could not generate the poster. Please check the template image and try again.')}
+finally{showLoading(false)}
+}
+
+function loadImage(src){return new Promise((resolve,reject)=>{const im=new Image();im.crossOrigin='anonymous';im.onload=()=>resolve(im);im.onerror=reject;im.src=src})}
+function opaqueBounds(image){try{const cv=document.createElement('canvas'),ctx=cv.getContext('2d',{willReadFrequently:true});cv.width=image.naturalWidth;cv.height=image.naturalHeight;ctx.drawImage(image,0,0);const data=ctx.getImageData(0,0,cv.width,cv.height).data;let left=cv.width,top=cv.height,right=-1,bottom=-1;for(let y=0;y<cv.height;y++)for(let x=0;x<cv.width;x++)if(data[(y*cv.width+x)*4+3]>8){left=Math.min(left,x);top=Math.min(top,y);right=Math.max(right,x);bottom=Math.max(bottom,y)}return right<left?{x:0,y:0,w:cv.width,h:cv.height}:{x:left,y:top,w:right-left+1,h:bottom-top+1}}catch{return{x:0,y:0,w:image.naturalWidth,h:image.naturalHeight}}}
+async function trimmedLabelSource(src){const image=await loadImage(src),b=opaqueBounds(image),cv=document.createElement('canvas');cv.width=b.w;cv.height=b.h;cv.getContext('2d').drawImage(image,b.x,b.y,b.w,b.h,0,0,b.w,b.h);return cv.toDataURL('image/png')}
+function addFreeLabel(canvas){const label=document.createElement('img');label.className='free-label-preview';label.style.bottom='-1px';trimmedLabelSource(currentPoster.freeLabelUrl).then(src=>label.src=src).catch(()=>label.src=currentPoster.freeLabelUrl);canvas.appendChild(label)}
+
+async function renderToCanvas(){
+if(currentPoster.isFreeTemplate){const values=valueMap(),edit=photoEdits.free_photo,file=values.free_photo;if(!file&&!edit?.src)throw Error('Please upload or capture a photo first');const source=edit?.src||URL.createObjectURL(file),photo=await loadImage(source),sourceW=photo.naturalWidth,sourceH=photo.naturalHeight,maxSide=1920,ratio=Math.min(1,maxSide/Math.max(sourceW,sourceH)),w=Math.max(1,Math.round(sourceW*ratio)),h=Math.max(1,Math.round(sourceH*ratio)),cv=document.createElement('canvas');cv.width=w;cv.height=h;const ctx=cv.getContext('2d');ctx.drawImage(photo,0,0,w,h);const label=await loadImage(currentPoster.freeLabelUrl),b=opaqueBounds(label),labelH=Math.min(h,w*(b.h/b.w));ctx.drawImage(label,b.x,b.y,b.w,b.h,0,h-labelH,w,labelH);if(!edit?.src)URL.revokeObjectURL(source);return cv}
+if(!currentPoster.templateUrl)throw Error('Missing template');const bg=await loadImage(currentPoster.templateUrl);const w=bg.naturalWidth||currentPoster.templateWidth||1080,h=bg.naturalHeight||currentPoster.templateHeight||1080;const cv=document.createElement('canvas');cv.width=w;cv.height=h;const ctx=cv.getContext('2d');ctx.drawImage(bg,0,0,w,h);
+const values=valueMap();
+await Promise.all([...new Set((currentPoster.tags||[]).filter(t=>t.type==='text').map(t=>cssFontFamily(t.fontFamily)))].map(font=>document.fonts?.load(`700 16px "${font}"`)||Promise.resolve()));
+for(const t of (currentPoster.tags||[])){
+const x=(t.x??50)*w/100,y=(t.y??50)*h/100;
+if(t.type==='image'){const f=values[t.key],edit=photoEdits[t.key];if(!f&&!edit?.src)continue;const url=edit?.src||URL.createObjectURL(f);const im=await loadImage(url);const sizeW=(t.width||25)*w/100,sizeH=(t.frameHeight||t.width||25)*h/100,base=Math.min(sizeW/im.naturalWidth,sizeH/im.naturalHeight),scale=base*(edit?.scale||1),dw=im.naturalWidth*scale,dh=im.naturalHeight*scale,dx=x-dw/2+(edit?.x||0)*sizeW,dy=y-dh/2+(edit?.y||0)*sizeH;if(t.shape!=='none'){ctx.save();ctx.beginPath();if(t.shape==='circle'){ctx.arc(x,y,Math.min(sizeW,sizeH)/2,0,Math.PI*2)}else if(['arch','prm6Arch','prm6IceArch'].includes(t.shape)){const left=x-sizeW/2,top=y-sizeH/2,r=sizeW/2,archH=Math.min(sizeH*.76,r);ctx.moveTo(left,top+sizeH);ctx.lineTo(left,top+archH);ctx.ellipse(x,top+archH,r,archH,0,Math.PI,0);ctx.lineTo(left+sizeW,top+sizeH);ctx.closePath()}else if(t.shape==='free'){const points=freePoints(t);ctx.moveTo(x-sizeW/2+points[0].x*sizeW,y-sizeH/2+points[0].y*sizeH);points.slice(1).forEach(point=>ctx.lineTo(x-sizeW/2+point.x*sizeW,y-sizeH/2+point.y*sizeH));ctx.closePath()}else{ctx.rect(x-sizeW/2,y-sizeH/2,sizeW,sizeH)}ctx.clip();ctx.drawImage(im,dx,dy,dw,dh);ctx.restore()}else ctx.drawImage(im,dx,dy,dw,dh);if(t.shape==='prm6IceArch'){const frame=await loadImage('/assets/prm6-ice-arch-frame.png');ctx.drawImage(frame,x-sizeW/2,y-sizeH/2,sizeW,sizeH)}if(!edit?.src)URL.revokeObjectURL(url)}
+else{let text=String(values[t.key]||'');if(text.length>100)text=text.slice(0,100);const size=fittedNameFont(t,text,t.fontSize||5)*w/100;ctx.save();ctx.translate(x,y);ctx.rotate((t.rotation||0)*Math.PI/180);ctx.fillStyle=t.color||'#14243c';ctx.font=`${t.fontWeight||700} ${size}px "${cssFontFamily(t.fontFamily)}"`;ctx.textAlign=t.align||'center';ctx.textBaseline='middle';const max=w*.9;ctx.fillText(text,0,0,max);ctx.restore()}
+}
+return cv
+}
+
+async function downloadGenerated(e){
+if(e)e.preventDefault();if(!generatedCanvas)return;const name=(currentEvent.slug+'_'+currentPoster.slug+'.png').replace(/[^a-zA-Z0-9_.-]/g,'_');try{const blob=await new Promise((resolve,reject)=>generatedCanvas.toBlob(value=>value?resolve(value):reject(Error('Could not prepare download')),'image/png'));const file=new File([blob],name,{type:'image/png'}),isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);if(isIOS&&navigator.canShare?.({files:[file]})){try{await navigator.share({files:[file],title:'Your Poster'});return}catch(err){if(err?.name==='AbortError')return}}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(url);a.remove()},1000)}catch(err){console.error(err);alert('Could not download the poster. Please try again.')}
+}
+function generateAgain(e){if(e)e.preventDefault();const form=$('posterForm');$('result').classList.remove('show');$('downloadBtn').style.display='none';$('newBtn').style.display='none';form.classList.remove('generated');form.querySelector('.generate').style.display='flex';generatedCanvas=null;photoEdits={};form.reset();form.querySelectorAll('.photo-status').forEach(el=>el.textContent='JPG, PNG or WebP');form.querySelectorAll('[id^="cameraBtn_"]').forEach(el=>el.textContent='Capture photo');updateLivePreview();window.scrollTo({top:0,behavior:'smooth'})}
+
+Object.assign(window,{goHome,backToEvent,downloadGenerated,generateAgain,closePhotoEditor,chooseAnotherPhoto,applyPhotoCrop,retakePhoto,openCamera,closeCamera,capturePhoto});
+window.addEventListener('popstate',()=>location.reload());
+loadData();
+</script>
+
+<script>
+/* =========================================================
+   POSTER READY — CINEMATIC REEL MOTION LAYER
+   Marketing layer only.
+   The Firebase/poster generation module above is untouched.
+========================================================= */
+(function(){
+  const reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const isTouch = window.matchMedia && window.matchMedia('(pointer:coarse)').matches;
+
+  function initReveal(){
+    const els=[...document.querySelectorAll('.reveal,.reveal-scale,.process-item')];
+    if(reduced){
+      els.forEach(el=>el.classList.add('is-visible'));
+      return;
+    }
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:.08,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(el=>io.observe(el));
+  }
+
+  function initFaq(){
+    document.querySelectorAll('.faq-q').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const item=btn.closest('.faq-item');
+        document.querySelectorAll('.faq-item.open').forEach(other=>{
+          if(other!==item) other.classList.remove('open');
+        });
+        item.classList.toggle('open');
+      });
+    });
+  }
+
+  function initHeader(){
+    const header=document.getElementById('siteHeader');
+    if(!header)return;
+    let last=window.scrollY;
+    const update=()=>{
+      const y=window.scrollY;
+      header.classList.toggle('scrolled',y>40);
+      if(y>last+10 && y>150) header.classList.add('hide');
+      if(y<last-10) header.classList.remove('hide');
+      last=y;
+    };
+    window.addEventListener('scroll',update,{passive:true});
+    update();
+  }
+
+  function initMobileNav(){
+    const menu=document.querySelector('.header-menu');
+    if(!menu)return;
+    menu.addEventListener('click',()=>{
+      let panel=document.getElementById('mobilePanel');
+      if(!panel){
+        panel=document.createElement('div');
+        panel.id='mobilePanel';
+        panel.style.cssText='position:fixed;top:68px;left:12px;right:12px;z-index:79;background:#07111f;color:#fff;border-radius:16px;padding:12px;box-shadow:0 20px 60px rgba(0,0,0,.25);display:grid;gap:4px;';
+        panel.innerHTML='<a href="#services" style="padding:14px;font-weight:800;font-size:12px">What We Create</a><a href="#process" style="padding:14px;font-weight:800;font-size:12px">How It Works</a><a href="#events" style="padding:14px;font-weight:800;font-size:12px">Events</a><a href="#faq" style="padding:14px;font-weight:800;font-size:12px">FAQ</a>';
+        document.body.appendChild(panel);
+        panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>panel.remove()));
+      }else panel.remove();
+    });
+  }
+
+  function initAnchorNavigation(){
+    if(document.documentElement.dataset.anchorNavigationReady)return;
+    document.documentElement.dataset.anchorNavigationReady='true';
+    document.addEventListener('click',e=>{
+      const link=e.target.closest('a[href^="#"]');
+      if(!link)return;
+      const id=link.getAttribute('href');
+      if(!id || id==='#')return;
+      const target=document.querySelector(id);
+      if(!target)return;
+      e.preventDefault();
+      const header=document.getElementById('siteHeader');
+      const headerOffset=header?.offsetHeight||76;
+      const top=target.getBoundingClientRect().top+window.scrollY-headerOffset;
+      window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+    });
+  }
+
+  function addProgress(section, count, light){
+    if(!section || section.querySelector('.cine-progress'))return;
+    const nav=document.createElement('div');
+    nav.className='cine-progress'+(light?' light':'');
+    nav.setAttribute('aria-hidden','true');
+    for(let i=0;i<count;i++)nav.appendChild(document.createElement('i'));
+    document.body.appendChild(nav);
+    section._cineProgress=nav;
+    section._cineDots=[...nav.children];
+  }
+
+  function showProgress(section, index){
+    if(!section || !section._cineProgress)return;
+    section._cineProgress.classList.add('is-active');
+    section._cineDots.forEach((dot,i)=>dot.classList.toggle('on',i===index));
+  }
+
+  function hideProgress(section){
+    if(section && section._cineProgress)section._cineProgress.classList.remove('is-active');
+  }
+
+  function initCinematicScenes(){
+    initAnchorNavigation();
+    if(reduced || isTouch || window.innerWidth<=760 || !window.gsap || !window.ScrollTrigger)return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const hero=document.querySelector('[data-cine="hero"]');
+    if(hero){
+      hero.classList.add('cinematic-ready');
+      addProgress(hero,5,false);
+      const copy=hero.querySelector('.hero-copy');
+      const art=hero.querySelector('.hero-art');
+      const poster=hero.querySelector('.hero-banner-card');
+      const title=hero.querySelector('.hero-title');
+      const actions=hero.querySelector('.hero-actions');
+      const meta=hero.querySelector('.hero-meta');
+      const scrollHint=hero.querySelector('.hero-scroll');
+
+      gsap.set(copy,{x:-80,opacity:0});
+      gsap.set(title,{y:45});
+      gsap.set(actions,{y:35,opacity:0});
+      gsap.set(meta,{y:25,opacity:0});
+      gsap.set(art,{x:90,scale:.86,rotationY:-16,opacity:.55});
+      gsap.set(poster,{rotationY:8,rotationX:4,scale:.93});
+
+      const tl=gsap.timeline({
+        scrollTrigger:{
+          trigger:hero,start:'top top',end:'+=190%',pin:true,scrub:1.15,
+          anticipatePin:1,invalidateOnRefresh:true,
+          snap:{snapTo:[0,.22,.50,.76,1],duration:.42,ease:'power2.out'}
+        }
+      });
+
+      tl.to(art,{x:0,scale:1,rotationY:0,opacity:1,duration:.22,ease:'power3.out'},0)
+        .to(poster,{rotationY:-2,rotationX:1,scale:1,duration:.22,ease:'power3.out'},0)
+        .to(copy,{x:0,opacity:1,duration:.20,ease:'power3.out'},.22)
+        .to(title,{y:0,duration:.16,ease:'power3.out'},.30)
+        .to(actions,{y:0,opacity:1,duration:.15,ease:'power3.out'},.50)
+        .to(meta,{y:0,opacity:1,duration:.13,ease:'power3.out'},.64)
+        .to(art,{x:-35,scale:1.07,rotationY:7,duration:.24,ease:'none'},.70)
+        .to(title,{y:-28,scale:.94,opacity:.72,duration:.22,ease:'none'},.74)
+        .to(copy,{y:-34,opacity:.55,duration:.22,ease:'none'},.78)
+        .to(art,{x:-95,scale:1.13,rotationY:12,opacity:.28,duration:.18,ease:'power2.in'},.90);
+
+      ScrollTrigger.create({
+        trigger:hero,start:'top top',end:'+=190%',
+        onUpdate:self=>{
+          const p=self.progress;
+          let index=p<.12?0:p<.38?1:p<.62?2:p<.84?3:4;
+          showProgress(hero,index);
+          hero.classList.toggle('cine-scrolling',p>.04);
+          if(scrollHint)gsap.set(scrollHint,{opacity:Math.max(0,1-p*4)});
+        },
+        onEnter:()=>showProgress(hero,0),
+        onEnterBack:()=>showProgress(hero,4),
+        onLeave:()=>hideProgress(hero),
+        onLeaveBack:()=>hideProgress(hero)
+      });
+    }
+
+    const services=document.querySelector('[data-cine="services"]');
+    if(services){
+      addProgress(services,4,true);
+      const head=services.querySelector('.section-headline-row');
+      const cards=[...services.querySelectorAll('.service-card')];
+      gsap.set(head,{y:60,opacity:0});
+      gsap.set(cards,{y:120,opacity:0,scale:.84,rotationY:12});
+      const tl=gsap.timeline({
+        scrollTrigger:{
+          trigger:services,start:'top top',end:'+=210%',pin:true,scrub:1,
+          anticipatePin:1,invalidateOnRefresh:true,
+          snap:{snapTo:[0,.28,.52,.76,1],duration:.38,ease:'power2.out'}
+        }
+      });
+      tl.to(head,{y:0,opacity:1,duration:.18,ease:'power3.out'},0)
+        .to(cards[0],{y:0,opacity:1,scale:1,rotationY:0,duration:.18,ease:'power3.out'},.18)
+        .to(cards[1],{y:0,opacity:1,scale:1,rotationY:0,duration:.18,ease:'power3.out'},.40)
+        .to(cards[2],{y:0,opacity:1,scale:1,rotationY:0,duration:.18,ease:'power3.out'},.62)
+        .to(cards,{y:-24,duration:.24,ease:'none'},.76);
+      ScrollTrigger.create({
+        trigger:services,start:'top top',end:'+=210%',
+        onUpdate:self=>{
+          const p=self.progress;
+          const idx=p<.18?0:p<.40?1:p<.64?2:3;
+          showProgress(services,idx);
+          cards.forEach((c,i)=>c.classList.toggle('cine-focus',i===Math.min(idx,2)));
+        },
+        onEnter:()=>showProgress(services,0),onEnterBack:()=>showProgress(services,3),
+        onLeave:()=>hideProgress(services),onLeaveBack:()=>hideProgress(services)
+      });
+    }
+
+    const process=document.querySelector('[data-cine="process"]');
+    if(process){
+      addProgress(process,5,false);
+      const sticky=process.querySelector('.process-sticky');
+      const items=[...process.querySelectorAll('.process-item')];
+      gsap.set(sticky,{x:-70,opacity:0});
+      gsap.set(items,{x:110,opacity:0,rotateY:-10});
+      const tl=gsap.timeline({
+        scrollTrigger:{
+          trigger:process,start:'top top',end:'+=210%',pin:true,scrub:1,
+          anticipatePin:1,invalidateOnRefresh:true,
+          snap:{snapTo:[0,.24,.47,.68,.84,1],duration:.4,ease:'power2.out'}
+        }
+      });
+      tl.to(sticky,{x:0,opacity:1,duration:.18},0)
+        .to(items[0],{x:0,opacity:1,rotateY:0,duration:.16},.18)
+        .to(items[1],{x:0,opacity:1,rotateY:0,duration:.16},.40)
+        .to(items[2],{x:0,opacity:1,rotateY:0,duration:.16},.61)
+        .to(items,{x:-30,duration:.23,ease:'none'},.76);
+      ScrollTrigger.create({
+        trigger:process,start:'top top',end:'+=210%',
+        onUpdate:self=>showProgress(process, self.progress<.18?0:self.progress<.36?1:self.progress<.57?2:self.progress<.78?3:4),
+        onEnter:()=>showProgress(process,0),onEnterBack:()=>showProgress(process,4),
+        onLeave:()=>hideProgress(process),onLeaveBack:()=>hideProgress(process)
+      });
+    }
+
+    const showcase=document.querySelector('[data-cine="showcase"]');
+    if(showcase){
+      addProgress(showcase,5,false);
+      const head=showcase.querySelector('.section-headline-row');
+      const wall=showcase.querySelector('.poster-wall');
+      const posters=[...showcase.querySelectorAll('.mock-poster')];
+      gsap.set(head,{y:80,opacity:0});
+      gsap.set(posters[0],{x:170,rotationY:-18,rotationZ:-5,opacity:0,scale:.78});
+      gsap.set(posters[1],{x:20,rotationY:10,opacity:0,scale:.82});
+      gsap.set(posters[2],{x:-170,rotationY:18,rotationZ:5,opacity:0,scale:.78});
+      const tl=gsap.timeline({
+        scrollTrigger:{
+          trigger:showcase,start:'top top',end:'+=230%',pin:true,scrub:1.05,
+          anticipatePin:1,invalidateOnRefresh:true,
+          snap:{snapTo:[0,.22,.43,.68,.84,1],duration:.4,ease:'power2.out'}
+        }
+      });
+      tl.to(head,{y:0,opacity:1,duration:.16},0)
+        .to(posters[0],{x:0,rotationY:0,rotationZ:0,opacity:1,scale:1,duration:.20},.18)
+        .to(posters[1],{x:0,rotationY:0,opacity:1,scale:1,duration:.18},.38)
+        .to(posters[2],{x:0,rotationY:0,rotationZ:0,opacity:1,scale:1,duration:.18},.57)
+        .to(wall,{x:-18,scale:1.03,duration:.22,ease:'none'},.76)
+        .to(posters,{rotationY:0,x:'-=55',duration:.18,ease:'power2.in'},.88);
+      ScrollTrigger.create({
+        trigger:showcase,start:'top top',end:'+=230%',
+        onUpdate:self=>showProgress(showcase,self.progress<.14?0:self.progress<.34?1:self.progress<.54?2:self.progress<.78?3:4),
+        onEnter:()=>showProgress(showcase,0),onEnterBack:()=>showProgress(showcase,4),
+        onLeave:()=>hideProgress(showcase),onLeaveBack:()=>hideProgress(showcase)
+      });
+    }
+
+    const awareness=document.querySelector('[data-cine="awareness"]');
+    if(awareness){
+      addProgress(awareness,5,true);
+      const art=awareness.querySelector('.awareness-art');
+      const image=awareness.querySelector('.awareness-image');
+      const copy=awareness.querySelector('.awareness-copy');
+      const list=[...awareness.querySelectorAll('.awareness-copy li')];
+      gsap.set(art,{x:110,rotationY:-14,opacity:0,scale:.86});
+      gsap.set(copy,{x:-80,opacity:0});
+      gsap.set(list,{x:60,opacity:0});
+      const tl=gsap.timeline({
+        scrollTrigger:{
+          trigger:awareness,start:'top top',end:'+=210%',pin:true,scrub:1,
+          anticipatePin:1,invalidateOnRefresh:true,
+          snap:{snapTo:[0,.22,.44,.62,.78,1],duration:.4,ease:'power2.out'}
+        }
+      });
+      tl.to(art,{x:0,rotationY:0,opacity:1,scale:1,duration:.22},0)
+        .to(image,{rotationZ:-1.5,y:-12,duration:.18},.20)
+        .to(copy,{x:0,opacity:1,duration:.18},.32)
+        .to(list[0],{x:0,opacity:1,duration:.10},.48)
+        .to(list[1],{x:0,opacity:1,duration:.10},.57)
+        .to(list[2],{x:0,opacity:1,duration:.10},.66)
+        .to(list[3],{x:0,opacity:1,duration:.10},.75)
+        .to(art,{x:-30,rotationY:5,scale:1.06,duration:.20,ease:'none'},.84);
+      ScrollTrigger.create({
+        trigger:awareness,start:'top top',end:'+=210%',
+        onUpdate:self=>showProgress(awareness,self.progress<.16?0:self.progress<.30?1:self.progress<.46?2:self.progress<.68?3:4),
+        onEnter:()=>showProgress(awareness,0),onEnterBack:()=>showProgress(awareness,4),
+        onLeave:()=>hideProgress(awareness),onLeaveBack:()=>hideProgress(awareness)
+      });
+    }
+
+    const events=document.querySelector('[data-cine="events"]');
+    if(events){
+      addProgress(events,3,true);
+      const head=events.querySelector('.section-headline-row');
+      gsap.fromTo(head,{y:70,opacity:0},{y:0,opacity:1,duration:.9,ease:'power4.out',
+        scrollTrigger:{trigger:events,start:'top 78%',once:true}});
+      ScrollTrigger.create({
+        trigger:events,start:'top 78%',end:'bottom 35%',
+        onEnter:()=>showProgress(events,0),onEnterBack:()=>showProgress(events,1),
+        onLeave:()=>hideProgress(events),onLeaveBack:()=>hideProgress(events)
+      });
+      const animateCards=()=>{
+        const cards=[...events.querySelectorAll('.event-card')];
+        if(!cards.length)return;
+        gsap.set(cards,{y:70,opacity:0,rotateX:10,scale:.94});
+        cards.forEach((card,i)=>{
+          gsap.to(card,{y:0,opacity:1,rotateX:0,scale:1,duration:.8,delay:i*.06,ease:'power4.out',
+            scrollTrigger:{trigger:card,start:'top 88%',once:true}});
+          ScrollTrigger.create({trigger:card,start:'top 72%',once:true,onEnter:()=>card.classList.add('is-shine')});
+        });
+      };
+      const observer=new MutationObserver(()=>{animateCards();ScrollTrigger.refresh()});
+      const grid=events.querySelector('#eventGrid');
+      if(grid){
+        observer.observe(grid,{childList:true,subtree:false});
+        if(grid.children.length)animateCards();
+      }
+    }
+
+    const faq=document.querySelector('[data-cine="faq"]');
+    if(faq){
+      addProgress(faq,2,true);
+      const left=faq.querySelector('.faq-grid>div:first-child');
+      const list=faq.querySelector('.faq-list');
+      gsap.fromTo(left,{x:-60,opacity:0},{x:0,opacity:1,duration:.9,ease:'power4.out',scrollTrigger:{trigger:faq,start:'top 75%',once:true}});
+      gsap.fromTo(list,{x:70,opacity:0},{x:0,opacity:1,duration:.9,ease:'power4.out',scrollTrigger:{trigger:faq,start:'top 75%',once:true}});
+      ScrollTrigger.create({
+        trigger:faq,start:'top 75%',end:'bottom 25%',
+        onEnter:()=>showProgress(faq,0),onEnterBack:()=>showProgress(faq,1),
+        onLeave:()=>hideProgress(faq),onLeaveBack:()=>hideProgress(faq)
+      });
+    }
+
+    const cta=document.querySelector('[data-cine="cta"]');
+    if(cta){
+      addProgress(cta,3,false);
+      const inner=cta.querySelector('.cta-inner');
+      gsap.set(inner,{y:100,opacity:0,scale:.86,rotationY:-8});
+      const tl=gsap.timeline({
+        scrollTrigger:{trigger:cta,start:'top top',end:'+=150%',pin:true,scrub:1,
+          anticipatePin:1,invalidateOnRefresh:true,
+          snap:{snapTo:[0,.38,.72,1],duration:.4,ease:'power2.out'}}
+      });
+      tl.to(inner,{y:0,opacity:1,scale:1,rotationY:0,duration:.34,ease:'power3.out'},0)
+        .to(inner,{y:-35,scale:1.05,duration:.28,ease:'none'},.45)
+        .to(inner,{y:-90,scale:1.12,opacity:.45,rotationY:5,duration:.22,ease:'power2.in'},.76);
+      ScrollTrigger.create({
+        trigger:cta,start:'top top',end:'+=150%',
+        onUpdate:self=>showProgress(cta,self.progress<.32?0:self.progress<.68?1:2),
+        onEnter:()=>showProgress(cta,0),onEnterBack:()=>showProgress(cta,2),
+        onLeave:()=>hideProgress(cta),onLeaveBack:()=>hideProgress(cta)
+      });
+    }
+
+    setTimeout(()=>ScrollTrigger.refresh(),250);
+    window.addEventListener('resize',()=>ScrollTrigger.refresh(),{passive:true});
+  }
+
+  function boot(){
+    document.body.classList.remove('is-loading');
+    initReveal();
+    initFaq();
+    initHeader();
+    initCinematicScenes();
+    initMobileNav();
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);
+  else boot();
+
+  window.addEventListener('load',()=>{
+    const loader=document.getElementById('siteLoader');
+    if(loader)setTimeout(()=>loader.classList.add('is-hidden'),650);
+  });
+})();
+</script>
+
+</body>
+</html>
